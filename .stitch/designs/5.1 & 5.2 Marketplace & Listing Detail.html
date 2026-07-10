@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CampusOS | Bazaar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,600;0,8..60,700;1,8..60,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f6f3ec",
+                        "inverse-primary": "#bbc6e7",
+                        "on-surface": "#1c1c18",
+                        "on-background": "#1c1c18",
+                        "on-primary-container": "#8691b0",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e5e2db",
+                        "surface-variant": "#e5e2db",
+                        "on-secondary-fixed-variant": "#643f00",
+                        "error-container": "#ffdad6",
+                        "background": "#fcf9f2",
+                        "outline": "#76777e",
+                        "surface-container": "#f0eee7",
+                        "on-tertiary-fixed-variant": "#57441d",
+                        "secondary-container": "#ffb958",
+                        "tertiary-fixed-dim": "#dfc391",
+                        "surface-container-high": "#ebe8e1",
+                        "paper-bg": "#FAF7F0",
+                        "tertiary": "#1f1400",
+                        "surface-bright": "#fcf9f2",
+                        "on-tertiary-container": "#a78f61",
+                        "inverse-on-surface": "#f3f0ea",
+                        "ink-navy": "#1F2A44",
+                        "outline-variant": "#c6c6ce",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#744900",
+                        "inverse-surface": "#31312c",
+                        "error-brick": "#B4482F",
+                        "primary-fixed": "#d9e2ff",
+                        "surface": "#fcf9f2",
+                        "on-tertiary-fixed": "#261900",
+                        "secondary": "#845400",
+                        "on-error": "#ffffff",
+                        "success-sage": "#5E7A63",
+                        "secondary-fixed-dim": "#ffb958",
+                        "on-primary-fixed-variant": "#3b4662",
+                        "tertiary-container": "#382804",
+                        "verified-gold": "#C98A2C",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dcdad3",
+                        "on-surface-variant": "#45464d",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#ffddb6",
+                        "rule-grey": "#D8D2C4",
+                        "primary": "#09152e",
+                        "on-primary-fixed": "#0f1b34",
+                        "on-secondary-fixed": "#2a1800",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#535e7b",
+                        "tertiary-fixed": "#fcdfab",
+                        "primary-container": "#1f2a44",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#bbc6e7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "sm": "12px",
+                        "xs": "8px",
+                        "xl": "32px",
+                        "gutter": "16px",
+                        "margin-desktop": "40px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Public Sans"],
+                        "label-mono": ["IBM Plex Mono"],
+                        "display-lg-mobile": ["\"Source Serif 4\""],
+                        "label-caps": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "display-lg": ["\"Source Serif 4\""],
+                        "headline-md": ["\"Source Serif 4\""]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            background-color: transparent;
+            border: 1.5px solid #C98A2C;
+            color: #C98A2C;
+            padding: 2px;
+        }
+        .editorial-shadow {
+            box-shadow: none;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .editorial-shadow:active {
+            transform: scale(0.98);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-paper-bg text-on-surface font-body-md min-h-screen">
+<!-- Desktop Sidebar (SideNav) -->
+<aside class="hidden md:flex flex-col h-full w-64 fixed left-0 top-0 border-r border-rule-grey bg-paper-bg py-xl px-md z-50">
+<div class="mb-xl px-xs">
+<h1 class="font-headline-md text-headline-md font-bold text-ink-navy">CampusOS</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant tracking-wider mt-xs">Verified Student</p>
+</div>
+<nav class="flex-1 space-y-xs">
+<a class="flex items-center gap-md py-sm px-md transition-colors duration-200 text-on-surface-variant hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-caps text-label-caps">Ledger</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md transition-colors duration-200 text-ink-navy font-bold border-r-4 border-verified-gold bg-surface-container-high" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-caps text-label-caps">Marketplace</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md transition-colors duration-200 text-on-surface-variant hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span class="font-label-caps text-label-caps">Barter</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md transition-colors duration-200 text-on-surface-variant hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-label-caps text-label-caps">Recruitment</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md transition-colors duration-200 text-on-surface-variant hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="font-label-caps text-label-caps">Moderation</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md transition-colors duration-200 text-on-surface-variant hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-rule-grey pt-xl space-y-xs">
+<button class="w-full bg-ink-navy text-on-primary font-label-caps text-label-caps py-md rounded-lg mb-md">Digital ID</button>
+<a class="flex items-center gap-md py-xs px-md text-on-surface-variant hover:text-ink-navy transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+<a class="flex items-center gap-md py-xs px-md text-on-surface-variant hover:text-ink-navy transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-caps text-label-caps">Support</span>
+</a>
+</div>
+</aside>
+<!-- Top AppBar (Mobile & Tablet) -->
+<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 fixed md:sticky top-0 z-40 border-b border-rule-grey bg-paper-bg md:ml-64 md:max-w-[calc(100%-16rem)]">
+<div class="flex items-center gap-md">
+<span class="md:hidden material-symbols-outlined text-ink-navy">menu</span>
+<h2 class="font-headline-md text-headline-md font-bold text-ink-navy">Bazaar</h2>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-ink-navy">notifications</span>
+<span class="material-symbols-outlined text-verified-gold" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-rule-grey">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a university student with soft lighting and a neutral grey background. The student is wearing an academic navy sweater. The image is clean, high-contrast, and fits a premium light-mode academic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTB5_5_bOIgjlJP0rmKAgAACawX7rdhjx6WSlLt9NmhlFlGShIumxz98MzVA6dgqhTecf7Bw-YjW3JvWzioxUzdpvQUhvWsS2nJge7c8d46dm34tQnW2ORnC0jIfBw6YHfEbna6N1DMOFJPdPNO9xFLwj-PSe5SbZTtBr8ahm1ADbpTqjIg3keJ1zHORlhQPy-E44U9KTlfNKr0S7GuWDgzpArPhIPQyUZnaZCA_n29TdmUmmbMsMuFtUxw8sI4A17ZcQBcltZFY0"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 p-margin-mobile md:p-margin-desktop pt-20 md:pt-md pb-24 md:pb-xl max-w-[1200px] mx-auto">
+<!-- BROWSE VIEW (Initially Visible) -->
+<section id="browse-view">
+<!-- Search & Filter Cluster -->
+<div class="mb-xl space-y-md">
+<div class="relative w-full max-w-2xl">
+<span class="absolute left-md top-1/2 -translate-y-1/2 material-symbols-outlined text-outline">search</span>
+<input class="w-full pl-xl pr-md py-md bg-surface-container-lowest border border-rule-grey rounded-lg focus:outline-none focus:border-ink-navy font-label-mono text-label-mono uppercase tracking-widest transition-all" placeholder="SEARCH THE ARCHIVES..." type="text"/>
+</div>
+<div class="flex gap-sm overflow-x-auto hide-scrollbar pb-xs">
+<button class="whitespace-nowrap px-lg py-xs rounded-full border border-ink-navy bg-ink-navy text-on-primary font-label-caps text-label-caps">All Records</button>
+<button class="whitespace-nowrap px-lg py-xs rounded-full border border-rule-grey text-on-surface-variant hover:border-ink-navy font-label-caps text-label-caps">Books</button>
+<button class="whitespace-nowrap px-lg py-xs rounded-full border border-rule-grey text-on-surface-variant hover:border-ink-navy font-label-caps text-label-caps">Electronics</button>
+<button class="whitespace-nowrap px-lg py-xs rounded-full border border-rule-grey text-on-surface-variant hover:border-ink-navy font-label-caps text-label-caps">Apparel</button>
+<button class="whitespace-nowrap px-lg py-xs rounded-full border border-rule-grey text-on-surface-variant hover:border-ink-navy font-label-caps text-label-caps">Misc</button>
+</div>
+</div>
+<!-- Bento-style Grid -->
+<div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
+<!-- Listing Card 1 -->
+<div class="group cursor-pointer editorial-shadow bg-surface-container-lowest border border-rule-grey rounded-lg overflow-hidden flex flex-col" onclick="showDetail()">
+<div class="relative aspect-square overflow-hidden border-b border-rule-grey">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A stack of premium hardcover engineering textbooks neatly arranged on a clean oak library desk. Soft, natural window light illuminates the paper textures. The aesthetic is crisp, organized, and academic, using a palette of off-whites and navy blues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBDDA6CkwbnYGAiy7uXFZJ9VNUystzLp86qQYvElNDHh2qK_eOs18MBAosux0kQJZMkWOYeYgqiQU8MnNNM09fq2PVMLadQNJ0PtiMh11gEQz_KmhldVm1mJ2nYT0kqtwoaDHAlyaFEeetdMPKhDLVjRpizAdE5yd08OZfCJYQfYoi9Pcvczl9YtHdUtR-i4OFXbL3K_Ks46OfBSGE87oco1TSXkgW7Bo3cyrW73f9R3vRWZ5gB8quPgV2qYMHsbla2U3Uzl0K0e0"/>
+<div class="absolute top-sm right-sm bg-paper-bg/90 border border-rule-grey px-xs py-1 rounded">
+<span class="font-label-mono text-[10px] text-ink-navy uppercase">Near Mint</span>
+</div>
+</div>
+<div class="p-md flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-body-md font-bold text-ink-navy line-clamp-1 mb-xs">Intro to Quantum Dynamics</h3>
+<p class="font-label-mono text-verified-gold text-label-mono">$85.00</p>
+</div>
+<div class="mt-lg flex items-center justify-between border-t border-rule-grey pt-sm">
+<div class="flex items-center gap-xs">
+<div class="w-6 h-6 rounded-full border border-rule-grey overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up of a verified seller avatar with a minimalist clean background. The person looks professional and trustworthy. Cohesive with the CampusOS light-mode branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcSjzyKfNhwvkv440IhQnFbPomFF-xkS1kwbl5TStijMPNEXX3Sv31d8nvXYXy4nXu1YbaojOP4zCVfxUzVfOOiNyxd4dw8dwqp8QuidLTq1KAPA3haw7FfutkpsEoWRyqZAMViDEZhEXUAallnEipDU-ItiNIt5Jx3uwQwJKJ7cOjBlrxx_6dyqF3JrjUGBHICQVUHMJ59k_AIokH8bljtDh1yE-_FWm-fZJrAfKA6pyJUT_xGaZJw0p-ahcPBgTzGGSJMP9j1uQ"/>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant">L. Reynolds</span>
+</div>
+<div class="verified-badge" title="Verified Student Seller">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Listing Card 2 -->
+<div class="group cursor-pointer editorial-shadow bg-surface-container-lowest border border-rule-grey rounded-lg overflow-hidden flex flex-col" onclick="showDetail()">
+<div class="relative aspect-square overflow-hidden border-b border-rule-grey">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sleek graphite graphing calculator resting on a clean white blueprint. The lighting is precise, emphasizing the technical build and buttons of the device. High-end product photography with a sterile, focused academic mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKMJnKKNHY4I35o2LO_aTbgOLFMTqtJYhviH4UrWNmpBPKvIs1wnr5aJpvahApQ5zdyuMG2NMUX33pM4fVHfvC4inU_8PLmlNRzWvAoxBteBsI0LMf5Ql9Emgd8rhQPQ0SwF0_DwKWcrX9zrbKYOSMpkscaVAvVB29PYX3_6wnHIvZgP1WuuD02CyjUo1Q5bggSsSlUrkrx56A-4uRE5A76_xSCYscvMWh4RI52Qxf29Koh7b-RJfot2Pfv-XOI8RrK8oYfZAX8kA"/>
+<div class="absolute top-sm right-sm bg-paper-bg/90 border border-rule-grey px-xs py-1 rounded">
+<span class="font-label-mono text-[10px] text-ink-navy uppercase">Used-Good</span>
+</div>
+</div>
+<div class="p-md flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-body-md font-bold text-ink-navy line-clamp-1 mb-xs">TI-84 Plus CE Graphing</h3>
+<p class="font-label-mono text-verified-gold text-label-mono">$60.00</p>
+</div>
+<div class="mt-lg flex items-center justify-between border-t border-rule-grey pt-sm">
+<div class="flex items-center gap-xs">
+<div class="w-6 h-6 rounded-full border border-rule-grey overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A high-quality portrait of a student, smiling subtly. The background is a blurred university corridor. The colors are muted, relying on the paper-white and ink-navy palette of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5TR5He6-vhF1DLe7lxwKYrgQxeI1qTmSleHUrG7NSVS4n4mZ70ybaRQQ93Fxilui9YiT0L3kZMrsZqTHzeqLqmncga1Tc-3vNZtt5AGcpqX1K7iecjXEwPyaS2wo9ZuxRx8G4cw-AMk0rBgu2UVedariMlge7piQWBa2KHoTb13bg5mBsH-ZC6e4WN0Oy09IuPEmMD8QOvlZW-EtPlhXi_LSHDogVyKU5CSCzcJUUC3-AbIvT7qIXblqIUu-qKlh3_73YraPHMXQ"/>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant">J. Carter</span>
+</div>
+<div class="verified-badge">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Listing Card 3 -->
+<div class="group cursor-pointer editorial-shadow bg-surface-container-lowest border border-rule-grey rounded-lg overflow-hidden flex flex-col">
+<div class="relative aspect-square overflow-hidden border-b border-rule-grey">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A pair of clean, minimalist noise-canceling headphones resting on a marble library table. A single journal and a fountain pen are nearby. The composition is artistic and editorial, reflecting high-end student lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYggI6NugLRL1GuIILZTEHZCbr8FSJvX4TFSOWSHi1o3N17kb75pf9sl8WsQUDnNdWXAz4hip6YeH_Fbc9UqULXSJfHwaVUWIjPSxN_fBFfb-0CNsWPqXkVgJJ5FaZiPijNgms5O26OgsDuYAcPArAp6ZdHlOBy2tAZWePY9EP6KmRNIX_qZgXTOhmJnOgr66r3jAS_KDeuePXmfRXeA3Zv0HOcLztvfKL4Xk7rF3uVb5-kJwn8B2xUjKYXx7QiN-PmgBlAeOQt90"/>
+<div class="absolute top-sm right-sm bg-paper-bg/90 border border-rule-grey px-xs py-1 rounded">
+<span class="font-label-mono text-[10px] text-ink-navy uppercase">Open Box</span>
+</div>
+</div>
+<div class="p-md flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-body-md font-bold text-ink-navy line-clamp-1 mb-xs">Bose QuietComfort SC</h3>
+<p class="font-label-mono text-verified-gold text-label-mono">$195.00</p>
+</div>
+<div class="mt-lg flex items-center justify-between border-t border-rule-grey pt-sm">
+<div class="flex items-center gap-xs">
+<div class="w-6 h-6 rounded-full border border-rule-grey overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Headshot of a senior university student, looking determined. Professional lighting, crisp detail. CampusOS design system colors are strictly followed." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABdg1_jWOAtIqdh5FN_7T80lSHTsxoiFqeGiE7waAN8onGYGeHrvWpHL8FXEMTLip5b8mq-REzmqcvadN2mAEreNzaxUhsizkHS19m1mMP0z_tVguPbI6y_sWcYH0vy9kUAoWbVJSWyhevgVZoTBZrUzhaq0OZyXNWYLEICV1vKhNgSZJq00m6gpAoo-WSagnTHbtqTsqO_3NTQTzX-e9gbWRW16Cvfpr5WLgSLuAM_oNd_TiLH4_pV0rn9nCuq8m0TsatfQg_g30"/>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant">M. Chen</span>
+</div>
+<div class="px-xs py-[2px] bg-surface-container border border-rule-grey rounded">
+<span class="font-label-mono text-[8px] text-outline uppercase">Peer</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Listing Card 4 -->
+<div class="group cursor-pointer editorial-shadow bg-surface-container-lowest border border-rule-grey rounded-lg overflow-hidden flex flex-col">
+<div class="relative aspect-square overflow-hidden border-b border-rule-grey">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An ergonomic task lamp with a warm glow illuminating a minimalist study setup. High-quality product photo for a marketplace. Soft shadows, focus on the lamp's industrial design and texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClRXCSz69QuC3HhtCYKb_-rOstqfsg9Pq5Rq_WwiNs5sG436uEyfdvQnnwTJ8F4KUbFcymTrIt_ZddoCOFRKkh5BJfaOm4l1ugs849GQiniH7yuFujC-C1gBA9ep3B6NEgrgvCsVWmLOwG4GQMi69ndpiul2dJOyNMegzo-hl31Ckp4a3ypZHIVm-0iysGq2SWReDvZWSjrLObepaf-pUm4XD90cqfMXw87j5EDiLzl1_JfY2pl6wj4xAUGgzpCEYp-CGJe01frUI"/>
+<div class="absolute top-sm right-sm bg-paper-bg/90 border border-rule-grey px-xs py-1 rounded">
+<span class="font-label-mono text-[10px] text-ink-navy uppercase">Gently Used</span>
+</div>
+</div>
+<div class="p-md flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-body-md font-bold text-ink-navy line-clamp-1 mb-xs">Hektar Desk Lamp</h3>
+<p class="font-label-mono text-verified-gold text-label-mono">$25.00</p>
+</div>
+<div class="mt-lg flex items-center justify-between border-t border-rule-grey pt-sm">
+<div class="flex items-center gap-xs">
+<div class="w-6 h-6 rounded-full border border-rule-grey overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up student portrait with a verified official look. Clean lines, trustworthy expression. Academic editorial photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC9krQfAYbQFjQfoK9yGVHB_IK8qFkxm_pczELxFMHpXLJmdh3KhJJisR7L2-nyjFp5qDYR3Sa8tyELV9dw7ZXxz3CHyUkuC4ldRtyMvPyzKKe_pTz0sXqd57RHmw1aq6lFzvfnhMh7zGW5yas4ywPowWLWygrIYm9EDijyxKX1gJl-gf0QT_-_ABjBtuzFBq_KB_b-CfhOk25tdLx7nbuDc476Sv8_GS4_6PjWrfFfTV69ce97VmT8QP7-5zU8jlqE86tFkCO2DU"/>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant">S. Gupta</span>
+</div>
+<div class="verified-badge">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- DETAIL VIEW (Initially Hidden) -->
+<section class="hidden animate-in fade-in duration-300" id="detail-view">
+<button class="flex items-center gap-xs text-on-surface-variant hover:text-ink-navy mb-xl transition-colors" onclick="hideDetail()">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="font-label-mono text-label-mono uppercase tracking-widest">Back to Bazaar</span>
+</button>
+<div class="flex flex-col lg:flex-row gap-xl items-start">
+<!-- Image Carousel Placeholder -->
+<div class="w-full lg:w-3/5 space-y-md">
+<div class="relative aspect-[4/3] bg-surface-container border border-rule-grey rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Large featured photo of high-end university textbooks. Deep focus, detailed paper edges and spine textures. Soft lighting from the side, creating a professional marketplace listing atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD02NwDcgvbzRCB9hcsgEaLMG-T-M0xCNby9r-QIua0EWE1MBqgntA6CUYTS5q76Y8jQ4yS5XB1ob_7dP-FlXc7D2ASYXftKiqmNeNbl2LFWivMnjOERxj4G3SgZMVfIgZnSRPAdY-KW4Wh-0l5DnQzyNItWyN2avNZ9DcXOV0jL3mtdZBKHBAhcRSuBTldrcFl82RzwtsrfGEf0ZGx_GamoAWr--bthbNG4iRlA818HmfVDPzSYHnOhfN_FUN2cVTorfnA5BuvzUM"/>
+<div class="absolute inset-0 flex items-center justify-between px-md pointer-events-none">
+<button class="pointer-events-auto bg-paper-bg/80 p-sm rounded-full border border-rule-grey hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-ink-navy">chevron_left</span>
+</button>
+<button class="pointer-events-auto bg-paper-bg/80 p-sm rounded-full border border-rule-grey hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-ink-navy">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-md">
+<div class="w-20 h-20 border-2 border-ink-navy rounded-lg overflow-hidden cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="Detail shot of the textbook cover and spine." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO8RhXHPKF6xpFoqbJKXtKAaFOtjCF_60PYsBjoFBhi-0jXGD326W54ZgUyW3-VmjJHcDgh0t8cGCbux5cKM279DUvSgn-JQkSmNJaCGb8j7D1JlWNGr_zowEB6nivdRo6EjHRr4u71a2VvRr4n0uH-jrgjmmi8rMIXlPCrgZ-fdYGaSCR23JdxIL_DiOGkgRUD-FnEq2F1pxUZsIqh4RGOTMPUO8j4TcfvUybibWdBa4VMYxF6iV8mBlWmoaMa7_6A6JIklyDets"/>
+</div>
+<div class="w-20 h-20 border border-rule-grey rounded-lg overflow-hidden opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="Detail shot of the textbook pages showing no highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2uJP3bkyNEsccCJQJKwxVVI-0blZ66Zd1QZMMXaQuHh38GvIjeIcpfYEzLJing4uSgt-sC1gMF8zCzotM2n2ujnZMuUWguMTvzmmenKxJxJjsq7WCWbp8qsJJfzpkeYZNYxRZOP_6NF4vKNhs3aD3c_Xh1lCHOT0c88ZnK5FYT2WJfz2aKes9ZvYSsU_3w1BIgUxwZKbhqpQWQJ3DgQHucLaPbtN86m-st73Jj-VpXVeA1-Eh8_T9rDpTXmwow8_O8dMwW80y380"/>
+</div>
+</div>
+</div>
+<!-- Info Sidebar -->
+<div class="w-full lg:w-2/5 space-y-xl">
+<div class="space-y-sm">
+<div class="flex justify-between items-start">
+<h1 class="font-display-lg text-display-lg text-ink-navy leading-tight">Intro to Quantum Dynamics (4th Ed.)</h1>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">bookmark_add</span>
+</div>
+<p class="font-label-mono text-headline-md text-verified-gold">$85.00</p>
+<div class="flex gap-sm">
+<span class="px-md py-xs bg-surface-container-high border border-rule-grey rounded font-label-caps text-[10px] text-ink-navy">Near Mint</span>
+<span class="px-md py-xs bg-surface-container-high border border-rule-grey rounded font-label-caps text-[10px] text-ink-navy">Hardcover</span>
+</div>
+</div>
+<div class="p-lg bg-surface-container-lowest border border-rule-grey rounded-lg">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-md border-b border-rule-grey pb-xs uppercase">Seller Certificate</h2>
+<div class="flex items-center gap-md mb-lg">
+<div class="relative">
+<div class="w-12 h-12 rounded-full border border-rule-grey overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a verified university student seller." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjnJ3-yqucycNBoboVcm5VQuuNSRRo8BiVmcxfuu42Ym0LVKuaU34uXK7J631J4wJk7LBDFy7kN34762a_rOqBHR3KmIko-MCPMCvHy9-O3NhlaxkIZxss_m-FqOVnpYfeTwcFUTRVCLVlBDaWRSG4fzibwrlBzAv9YxsZPtP3F59yKJrsA5CKL9bT3BGbMWO0Wcfoe2c4cbOnK8MRIj8ApJTWsEgnbb1aAE3iU5n1bY0t5eP8mvX8ijUglEYa7DAP7gSX9PYVE6A"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-white rounded-full p-[1px]">
+<div class="verified-badge bg-white scale-75">
+<span class="material-symbols-outlined text-[10px]">verified</span>
+</div>
+</div>
+</div>
+<div>
+<p class="font-body-md font-bold text-ink-navy">Leo Reynolds</p>
+<p class="font-label-mono text-[10px] text-on-surface-variant">Class of '25 | Engineering</p>
+</div>
+</div>
+<div class="flex items-center gap-xs mb-lg">
+<span class="material-symbols-outlined text-verified-gold text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-verified-gold text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-verified-gold text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-verified-gold text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-rule-grey text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-mono text-[10px] text-on-surface-variant ml-xs">(12 Vouchers)</span>
+</div>
+<button class="w-full py-md bg-ink-navy text-on-primary font-label-caps text-label-caps rounded-lg editorial-shadow">Message Seller</button>
+</div>
+<div class="space-y-md">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase border-b border-rule-grey pb-xs">Manifest Description</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            Used for one semester. No highlighting or marks on the interior pages. Covers have very slight shelf wear at the corners. Essential for PHY302. Meeting preferred at the Engineering Quad or Student Union.
+                        </p>
+</div>
+<div class="pt-lg flex justify-center">
+<a class="font-label-mono text-label-mono text-error-brick underline hover:no-underline" href="#">Report Listing to Moderation</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-margin-mobile py-xs bg-paper-bg border-t border-rule-grey md:hidden z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-95 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-caps text-[10px] uppercase">Ledger</span>
+</a>
+<a class="flex flex-col items-center justify-center text-verified-gold active:scale-95 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-label-caps text-[10px] uppercase">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-95 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined">handshake</span>
+<span class="font-label-caps text-[10px] uppercase">Barter</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-95 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined">business_center</span>
+<span class="font-label-caps text-[10px] uppercase">Career</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-95 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="font-label-caps text-[10px] uppercase">Admin</span>
+</a>
+</nav>
+<!-- Floating Action Button (FAB) Contextual for Browse -->
+<button class="fixed bottom-24 right-6 md:bottom-12 md:right-12 w-14 h-14 bg-verified-gold text-white rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110 active:scale-90 z-40" id="fab-new">
+<span class="material-symbols-outlined text-[32px]">add</span>
+</button>
+<script>
+        const browseView = document.getElementById('browse-view');
+        const detailView = document.getElementById('detail-view');
+        const fab = document.getElementById('fab-new');
+
+        function showDetail() {
+            browseView.classList.add('hidden');
+            detailView.classList.remove('hidden');
+            fab.classList.add('hidden'); // Suppress FAB on detail screen
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function hideDetail() {
+            detailView.classList.add('hidden');
+            browseView.classList.remove('hidden');
+            fab.classList.remove('hidden'); // Re-show FAB
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Micro-interaction for stamping cards
+        document.querySelectorAll('.editorial-shadow').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.98)';
+                card.style.borderColor = '#1F2A44';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

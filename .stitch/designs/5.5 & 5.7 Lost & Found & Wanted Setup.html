@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CampusOS | Lost &amp; Found &amp; Wanted</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f6f3ec",
+                    "inverse-primary": "#bbc6e7",
+                    "on-surface": "#1c1c18",
+                    "on-background": "#1c1c18",
+                    "on-primary-container": "#8691b0",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e5e2db",
+                    "surface-variant": "#e5e2db",
+                    "on-secondary-fixed-variant": "#643f00",
+                    "error-container": "#ffdad6",
+                    "background": "#fcf9f2",
+                    "outline": "#76777e",
+                    "surface-container": "#f0eee7",
+                    "on-tertiary-fixed-variant": "#57441d",
+                    "secondary-container": "#ffb958",
+                    "tertiary-fixed-dim": "#dfc391",
+                    "surface-container-high": "#ebe8e1",
+                    "paper-bg": "#FAF7F0",
+                    "tertiary": "#1f1400",
+                    "surface-bright": "#fcf9f2",
+                    "on-tertiary-container": "#a78f61",
+                    "inverse-on-surface": "#f3f0ea",
+                    "ink-navy": "#1F2A44",
+                    "outline-variant": "#c6c6ce",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#744900",
+                    "inverse-surface": "#31312c",
+                    "error-brick": "#B4482F",
+                    "primary-fixed": "#d9e2ff",
+                    "surface": "#fcf9f2",
+                    "on-tertiary-fixed": "#261900",
+                    "secondary": "#845400",
+                    "on-error": "#ffffff",
+                    "success-sage": "#5E7A63",
+                    "secondary-fixed-dim": "#ffb958",
+                    "on-primary-fixed-variant": "#3b4662",
+                    "tertiary-container": "#382804",
+                    "verified-gold": "#C98A2C",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#dcdad3",
+                    "on-surface-variant": "#45464d",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#ffddb6",
+                    "rule-grey": "#D8D2C4",
+                    "primary": "#09152e",
+                    "on-primary-fixed": "#0f1b34",
+                    "on-secondary-fixed": "#2a1800",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#535e7b",
+                    "tertiary-fixed": "#fcdfab",
+                    "primary-container": "#1f2a44",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed-dim": "#bbc6e7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "lg": "24px",
+                    "md": "16px",
+                    "sm": "12px",
+                    "xs": "8px",
+                    "xl": "32px",
+                    "gutter": "16px",
+                    "margin-desktop": "40px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Public Sans"],
+                    "label-mono": ["IBM Plex Mono"],
+                    "display-lg-mobile": ["\"Source Serif 4\""],
+                    "label-caps": ["Public Sans"],
+                    "body-lg": ["Public Sans"],
+                    "display-lg": ["\"Source Serif 4\""],
+                    "headline-md": ["\"Source Serif 4\""]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .verified-badge-stamp {
+            background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(201, 138, 44, 0.05) 2px, rgba(201, 138, 44, 0.05) 4px);
+        }
+    </style>
+</head>
+<body class="bg-paper-bg font-body-md text-on-surface">
+<!-- Desktop Side Navigation -->
+<aside class="hidden md:flex flex-col h-full w-64 fixed left-0 top-0 border-r border-rule-grey bg-paper-bg py-xl px-md">
+<div class="mb-xl px-xs">
+<h1 class="font-headline-md text-headline-md font-bold text-ink-navy">CampusOS</h1>
+<p class="font-label-mono text-label-mono text-verified-gold">VERIFIED STUDENT</p>
+</div>
+<nav class="flex-1 space-y-xs">
+<a class="flex items-center gap-md p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-caps text-label-caps">LEDGER</span>
+</a>
+<a class="flex items-center gap-md p-sm rounded-lg text-ink-navy font-bold border-r-4 border-verified-gold bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-caps text-label-caps">MARKETPLACE</span>
+</a>
+<a class="flex items-center gap-md p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span class="font-label-caps text-label-caps">BARTER</span>
+</a>
+<a class="flex items-center gap-md p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-label-caps text-label-caps">RECRUITMENT</span>
+</a>
+<a class="flex items-center gap-md p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="font-label-caps text-label-caps">MODERATION</span>
+</a>
+<a class="flex items-center gap-md p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-caps text-label-caps">PROFILE</span>
+</a>
+</nav>
+<div class="mt-auto pt-xl border-t border-rule-grey space-y-xs">
+<a class="flex items-center gap-md p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps">SETTINGS</span>
+</a>
+<a class="flex items-center gap-md p-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-caps text-label-caps">SUPPORT</span>
+</a>
+<button class="w-full mt-md bg-ink-navy text-white font-label-caps text-label-caps py-md rounded-lg hover:opacity-90 transition-opacity">
+                DIGITAL ID
+            </button>
+</div>
+</aside>
+<!-- Top Bar -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-16 md:ml-64 md:max-w-[calc(100%-16rem)] sticky top-0 z-40 bg-paper-bg border-b border-rule-grey">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-ink-navy">search</span>
+<input class="bg-transparent border-none focus:ring-0 font-body-md text-ink-navy w-64" placeholder="Search objects or requests..." type="text"/>
+</div>
+<div class="flex items-center gap-xl">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-ink-navy cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-verified-gold cursor-pointer" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-rule-grey">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a university student with a friendly expression, wearing a navy blazer over a crisp white shirt. The lighting is soft and flattering, highlighting the clean editorial style of the CampusOS platform. The background is a minimalist off-white studio wall, ensuring the focus remains on the student's verified identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6i-U51Pk51fhkIiGA8UMZ6F9iO4lPpKJYqur27g0F9tRO2JSQbB73HEuQYMJcqmaqMXtecLkoTCw-qIkIToJVWoPRaNZ_HYdILo6AhQtffN-hD_66NTMvcCPI0lw-PQbrTxqFbYzCZw4TsVtLIWnRFLGwPTAM65sMkJTw9wP7NiTH7w6K-e9sxM0EzjM6kxKhdZwH6aVXODZ42h1GZgwEpX0AHPssZTPTuVuA6KhMyhubSm_rJgJIbM123DTUcy3DilKCW5Vvc74"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="md:ml-64 p-margin-mobile md:p-margin-desktop pb-32">
+<div class="max-w-6xl mx-auto space-y-xl">
+<!-- Page Header -->
+<div class="border-b border-rule-grey pb-lg flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div class="space-y-base">
+<h2 class="font-display-lg text-display-lg text-ink-navy">Lost &amp; Found</h2>
+<p class="font-body-md text-on-surface-variant italic">The official ledger of misplaced artifacts and community discovery.</p>
+</div>
+<!-- Segmented Control -->
+<div class="flex bg-surface-container-high p-base rounded-lg w-fit border border-rule-grey">
+<button class="px-xl py-xs font-label-caps text-label-caps rounded bg-paper-bg text-ink-navy border border-rule-grey shadow-sm" id="toggle-lost">LOST</button>
+<button class="px-xl py-xs font-label-caps text-label-caps text-on-surface-variant hover:text-ink-navy" id="toggle-found">FOUND</button>
+</div>
+</div>
+<!-- Lost & Found Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Item Card 1 -->
+<div class="bg-white border border-rule-grey overflow-hidden group hover:border-verified-gold transition-colors duration-300">
+<div class="relative h-48 overflow-hidden border-b border-rule-grey">
+<img class="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-500" data-alt="A high-resolution photograph of a set of silver keys with a leather keychain featuring a university logo. The keys are resting on a weathered wooden campus bench under dappled sunlight filtering through autumn leaves. The image has a clean, journalistic quality with a shallow depth of field, emphasizing the crisp metallic textures against the warm wood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsRdP-ZTLnEP_V7nINygMLVJNR0E7OtETMJ7d2YgSt1AU2Wb6RBBkRVx1Slsfx116_CuK0_tW03pPiXXovwI_VWY7TguKvPpDILgpwXGHzgU9QAO17vG_mphV-yQd3jPtbI-KFndlhyk9pkDbnEYG63xnVPVwTd1OOpVvLT_aWNPEP-lZyE9AQuV4eSKNAk0pTn_CTSaEn46Txlri56d1__kta8VnU5DSnMomN-f2H3krUlyW7TQYyb3Q9Gts0TV7J5BWSEC1kxkc"/>
+<div class="absolute top-md right-md">
+<span class="bg-paper-bg border border-secondary-container text-secondary px-sm py-1 rounded-full font-label-caps text-[10px] tracking-widest flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> ACTIVE
+                            </span>
+</div>
+</div>
+<div class="p-lg space-y-md">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-ink-navy">Silver Keys with Leather Tag</h3>
+<p class="font-label-mono text-label-mono text-on-surface-variant mt-xs">Lost near Library Plaza</p>
+</div>
+</div>
+<p class="font-body-md text-on-surface-variant line-clamp-2">Bunch of 4 keys. Leather tag says 'Class of 2024'. Essential for dorm access.</p>
+<div class="pt-md border-t border-rule-grey flex justify-between items-center">
+<span class="font-label-caps text-[10px] text-outline italic">REPORTED: OCT 12</span>
+<button class="font-label-caps text-label-caps text-ink-navy border-b border-ink-navy hover:text-verified-gold hover:border-verified-gold transition-colors">VIEW DETAILS</button>
+</div>
+</div>
+</div>
+<!-- Item Card 2 -->
+<div class="bg-white border border-rule-grey overflow-hidden group hover:border-verified-gold transition-colors duration-300">
+<div class="relative h-48 overflow-hidden border-b border-rule-grey">
+<img class="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-500" data-alt="A sleek black tablet with a graphite stylus resting on its screen, lying on a modern library table next to a stack of scholarly journals. The composition is structured and editorial, with sharp lines and high-contrast lighting that creates deep shadows. The atmosphere is quiet and academic, reflecting the serious nature of a lost high-value item on campus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyH16HcLxVda6OXko_eJqmYanxsq_75YaEXkwNMn-FhHq0vNoYhoHHrDItgxPKwfvmzb3qKKsyDgDNc-wNXXX7ZNbwfGlEszw_le24kLsBGiAxa6ygV-4VAQlZn8Dwfpsw405g9s-aNNFLFqNFs7Px_la0pcEnNIDzQzllWYw5zTSIlkXsH6J2re1MQGL23LsG6vjPhh44MQ-QQroDlkOYKW7847aMuouviiVnNq7gyNOMj9sHkqhPhJiNCRbeT3FJfmxK5xULDlU"/>
+<div class="absolute top-md right-md">
+<span class="bg-paper-bg border border-success-sage text-success-sage px-sm py-1 rounded-full font-label-caps text-[10px] tracking-widest flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-success-sage"></span> FOUND
+                            </span>
+</div>
+</div>
+<div class="p-lg space-y-md">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-ink-navy">Graphite Tablet Pro</h3>
+<p class="font-label-mono text-label-mono text-on-surface-variant mt-xs">Found in Arts Hallway 3</p>
+</div>
+</div>
+<p class="font-body-md text-on-surface-variant line-clamp-2">Found in a gray felt sleeve. Left behind after the 2 PM Art History lecture.</p>
+<div class="pt-md border-t border-rule-grey flex justify-between items-center">
+<span class="font-label-caps text-[10px] text-outline italic">REPORTED: OCT 10</span>
+<button class="font-label-caps text-label-caps text-ink-navy border-b border-ink-navy hover:text-verified-gold hover:border-verified-gold transition-colors">CLAIM ITEM</button>
+</div>
+</div>
+</div>
+<!-- Item Card 3 (No Photo / Icon Placeholder) -->
+<div class="bg-surface-container border border-rule-grey flex flex-col items-center justify-center h-[420px] p-xl text-center space-y-md group hover:border-verified-gold transition-colors">
+<div class="w-24 h-24 rounded-full bg-paper-bg border border-rule-grey flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-rule-grey group-hover:text-verified-gold transition-colors">add_photo_alternate</span>
+</div>
+<h3 class="font-headline-md text-ink-navy">Missing Something?</h3>
+<p class="font-body-md text-on-surface-variant">Document your lost item in the campus ledger to begin the verification and recovery process.</p>
+<button class="bg-ink-navy text-white px-xl py-md rounded-lg font-label-caps text-label-caps hover:opacity-90 transition-opacity">FILE A REPORT</button>
+</div>
+</div>
+<!-- Wanted Setup Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-xl pt-xl">
+<!-- Notify Me Form (4 cols) -->
+<div class="lg:col-span-4 space-y-lg">
+<div class="bg-paper-bg border-2 border-dashed border-rule-grey p-xl rounded-xl verified-badge-stamp">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-verified-gold">campaign</span>
+<h3 class="font-headline-md text-ink-navy">Notify Me</h3>
+</div>
+<p class="font-body-md text-on-surface-variant mb-xl">Set up an automated alert for specific items appearing in the ledger.</p>
+<form class="space-y-md">
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant">ITEM KEYWORD</label>
+<input class="w-full p-md bg-white border border-rule-grey rounded-lg focus:ring-2 focus:ring-ink-navy focus:border-ink-navy outline-none font-body-md" placeholder="e.g. Umbrella, Calculator" type="text"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant">LOCATION RADIUS</label>
+<select class="w-full p-md bg-white border border-rule-grey rounded-lg focus:ring-2 focus:ring-ink-navy focus:border-ink-navy outline-none font-body-md appearance-none">
+<option>Main Campus Only</option>
+<option>East Wing Facilities</option>
+<option>Sports Complex</option>
+<option>All Locations</option>
+</select>
+</div>
+<div class="pt-md">
+<button class="w-full border-2 border-ink-navy text-ink-navy font-label-caps text-label-caps py-md rounded-lg hover:bg-ink-navy hover:text-white transition-all duration-200 flex items-center justify-center gap-sm" type="button">
+<span class="material-symbols-outlined text-sm">notifications_active</span>
+                                    ENABLE WATCHER
+                                </button>
+</div>
+</form>
+</div>
+<!-- Digital ID Stamp Visualization -->
+<div class="bg-white border border-rule-grey p-lg flex flex-col items-center justify-center gap-md relative overflow-hidden h-48">
+<div class="absolute -top-10 -right-10 w-32 h-32 rounded-full border-4 border-verified-gold/20 flex items-center justify-center opacity-50">
+<span class="material-symbols-outlined text-6xl text-verified-gold/20">verified</span>
+</div>
+<div class="text-center z-10">
+<p class="font-label-mono text-label-mono text-verified-gold uppercase mb-xs">Verification Status</p>
+<p class="font-headline-md text-ink-navy">High-Trust Account</p>
+<p class="font-body-md text-outline text-sm mt-xs">Required for claiming high-value items.</p>
+</div>
+</div>
+</div>
+<!-- Active Requests List (8 cols) -->
+<div class="lg:col-span-8 space-y-md">
+<div class="flex items-center justify-between border-b border-rule-grey pb-md mb-md">
+<h3 class="font-headline-md text-ink-navy">Community Wanted Requests</h3>
+<span class="font-label-mono text-label-mono text-outline">12 ACTIVE WATCHES</span>
+</div>
+<div class="space-y-sm">
+<!-- Request Row 1 -->
+<div class="flex items-center gap-lg p-lg bg-white border border-rule-grey hover:border-ink-navy transition-colors">
+<div class="w-16 h-16 bg-surface-container flex items-center justify-center rounded border border-rule-grey">
+<span class="material-symbols-outlined text-on-surface-variant">auto_stories</span>
+</div>
+<div class="flex-1">
+<h4 class="font-body-lg font-bold text-ink-navy">Macroeconomics 4th Ed.</h4>
+<p class="font-body-md text-on-surface-variant">Requesting notification if turned in at the Student Union.</p>
+</div>
+<div class="text-right flex flex-col items-end gap-xs">
+<span class="font-label-mono text-label-mono text-ink-navy">ID: W-8821</span>
+<button class="text-error-brick font-label-caps text-[10px] hover:underline">CANCEL</button>
+</div>
+</div>
+<!-- Request Row 2 -->
+<div class="flex items-center gap-lg p-lg bg-white border border-rule-grey hover:border-ink-navy transition-colors">
+<div class="w-16 h-16 bg-surface-container flex items-center justify-center rounded border border-rule-grey">
+<span class="material-symbols-outlined text-on-surface-variant">headphones</span>
+</div>
+<div class="flex-1">
+<h4 class="font-body-lg font-bold text-ink-navy">Noise-Canceling Case</h4>
+<p class="font-body-md text-on-surface-variant">Charging case found without buds? I am looking for one.</p>
+</div>
+<div class="text-right flex flex-col items-end gap-xs">
+<span class="font-label-mono text-label-mono text-ink-navy">ID: W-8845</span>
+<button class="text-error-brick font-label-caps text-[10px] hover:underline">CANCEL</button>
+</div>
+</div>
+<!-- Request Row 3 -->
+<div class="flex items-center gap-lg p-lg bg-white border border-rule-grey hover:border-ink-navy transition-colors opacity-60">
+<div class="w-16 h-16 bg-surface-container flex items-center justify-center rounded border border-rule-grey">
+<span class="material-symbols-outlined text-on-surface-variant">laptop_mac</span>
+</div>
+<div class="flex-1">
+<h4 class="font-body-lg font-bold text-ink-navy line-through">USB-C Power Adapter</h4>
+<p class="font-body-md text-on-surface-variant">Recovered! Match found by @CampusMod</p>
+</div>
+<div class="text-right flex flex-col items-end gap-xs">
+<span class="font-label-caps text-[10px] text-success-sage font-bold">MATCHED</span>
+<button class="text-ink-navy font-label-caps text-[10px] hover:underline">ARCHIVE</button>
+</div>
+</div>
+</div>
+<div class="pt-lg text-center">
+<button class="font-label-mono text-label-mono text-on-surface-variant hover:text-ink-navy flex items-center justify-center gap-sm w-full py-md border border-rule-grey border-dashed">
+                            VIEW ARCHIVED REQUESTS (42)
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-margin-mobile py-xs bg-paper-bg border-t border-rule-grey md:hidden z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-caps text-[10px]">LEDGER</span>
+</a>
+<a class="flex flex-col items-center justify-center text-verified-gold active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-label-caps text-[10px]">MARKET</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">handshake</span>
+<span class="font-label-caps text-[10px]">BARTER</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">business_center</span>
+<span class="font-label-caps text-[10px]">CAREER</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="font-label-caps text-[10px]">ADMIN</span>
+</a>
+</nav>
+<script>
+        // Simple Interaction for Segmented Control
+        const btnLost = document.getElementById('toggle-lost');
+        const btnFound = document.getElementById('toggle-found');
+
+        btnLost.addEventListener('click', () => {
+            btnLost.classList.add('bg-paper-bg', 'text-ink-navy', 'border', 'border-rule-grey', 'shadow-sm');
+            btnLost.classList.remove('text-on-surface-variant');
+            btnFound.classList.remove('bg-paper-bg', 'text-ink-navy', 'border', 'border-rule-grey', 'shadow-sm');
+            btnFound.classList.add('text-on-surface-variant');
+        });
+
+        btnFound.addEventListener('click', () => {
+            btnFound.classList.add('bg-paper-bg', 'text-ink-navy', 'border', 'border-rule-grey', 'shadow-sm');
+            btnFound.classList.remove('text-on-surface-variant');
+            btnLost.classList.remove('bg-paper-bg', 'text-ink-navy', 'border', 'border-rule-grey', 'shadow-sm');
+            btnLost.classList.add('text-on-surface-variant');
+        });
+    </script>
+</body></html>

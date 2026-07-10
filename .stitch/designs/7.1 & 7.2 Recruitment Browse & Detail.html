@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CampusOS | Recruitment Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:wght@600;700&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f6f3ec",
+                        "inverse-primary": "#bbc6e7",
+                        "on-surface": "#1c1c18",
+                        "on-background": "#1c1c18",
+                        "on-primary-container": "#8691b0",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e5e2db",
+                        "surface-variant": "#e5e2db",
+                        "on-secondary-fixed-variant": "#643f00",
+                        "error-container": "#ffdad6",
+                        "background": "#fcf9f2",
+                        "outline": "#76777e",
+                        "surface-container": "#f0eee7",
+                        "on-tertiary-fixed-variant": "#57441d",
+                        "secondary-container": "#ffb958",
+                        "tertiary-fixed-dim": "#dfc391",
+                        "surface-container-high": "#ebe8e1",
+                        "paper-bg": "#FAF7F0",
+                        "tertiary": "#1f1400",
+                        "surface-bright": "#fcf9f2",
+                        "on-tertiary-container": "#a78f61",
+                        "inverse-on-surface": "#f3f0ea",
+                        "ink-navy": "#1F2A44",
+                        "outline-variant": "#c6c6ce",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#744900",
+                        "inverse-surface": "#31312c",
+                        "error-brick": "#B4482F",
+                        "primary-fixed": "#d9e2ff",
+                        "surface": "#fcf9f2",
+                        "on-tertiary-fixed": "#261900",
+                        "secondary": "#845400",
+                        "on-error": "#ffffff",
+                        "success-sage": "#5E7A63",
+                        "secondary-fixed-dim": "#ffb958",
+                        "on-primary-fixed-variant": "#3b4662",
+                        "tertiary-container": "#382804",
+                        "verified-gold": "#C98A2C",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dcdad3",
+                        "on-surface-variant": "#45464d",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#ffddb6",
+                        "rule-grey": "#D8D2C4",
+                        "primary": "#09152e",
+                        "on-primary-fixed": "#0f1b34",
+                        "on-secondary-fixed": "#2a1800",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#535e7b",
+                        "tertiary-fixed": "#fcdfab",
+                        "primary-container": "#1f2a44",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#bbc6e7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "sm": "12px",
+                        "xs": "8px",
+                        "xl": "32px",
+                        "gutter": "16px",
+                        "margin-desktop": "40px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Public Sans"],
+                        "label-mono": ["IBM Plex Mono"],
+                        "display-lg-mobile": ["\"Source Serif 4\""],
+                        "label-caps": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "display-lg": ["\"Source Serif 4\""],
+                        "headline-md": ["\"Source Serif 4\""]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .verified-badge {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border: 1.5px solid #C98A2C;
+            border-radius: 50%;
+            background: transparent;
+        }
+        .scroll-hide::-webkit-scrollbar { display: none; }
+        .scroll-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-paper-bg text-on-surface font-body-md min-h-screen">
+<!-- Desktop Side Navigation -->
+<aside class="hidden md:flex flex-col h-full w-64 fixed left-0 top-0 border-r border-rule-grey bg-paper-bg py-xl px-md z-50">
+<div class="mb-xl px-xs">
+<h1 class="font-headline-md text-headline-md font-bold text-ink-navy">CampusOS</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant opacity-70 mt-base uppercase">Official Ledger</p>
+</div>
+<nav class="flex-1 space-y-xs">
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 text-on-surface-variant hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-body-md">Ledger</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 text-on-surface-variant hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-body-md">Marketplace</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 text-on-surface-variant hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span>
+<span class="font-body-md">Barter</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 text-ink-navy font-bold border-r-4 border-verified-gold bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="work" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="font-body-md">Recruitment</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 text-on-surface-variant hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span class="font-body-md">Moderation</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm transition-colors duration-200 text-on-surface-variant hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-body-md">Profile</span>
+</a>
+</nav>
+<div class="mt-auto space-y-xs border-t border-rule-grey pt-md">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md">Settings</span>
+</a>
+<div class="flex items-center gap-md px-md py-sm bg-surface-container rounded-lg mt-md">
+<img class="w-10 h-10 rounded-full border border-rule-grey" data-alt="A portrait of a college student with a professional and clean look, wearing a neutral-toned academic sweater. The lighting is bright and even, mimicking a studio identification photo. The background is a soft, solid paper-white, maintaining a formal editorial aesthetic consistent with a campus verification system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmdELSK8IhadBhXFs4q5kqaNbrKfOeGBy8FUviGUlmSe3saEiwrIwGv4dnTu_5GufkZLEPLedH6AHNOkAqj9IpH3js5rgmJyv_jgkp51ChIOOk38Q1iLXbLupXpu70CrT2dMAvPJLBN71g5Fkq5JoK9ip4gbU824Typm2JyreB-HX8PIsNbFSfCMQv7ATTxmmufk5KS4o9PbLVI4aDxzDP64qh95amwUyUNTFxIvvAGgrgt9AQOoFP5H9P84ZElxFCyaqLgGgZBtY"/>
+<div class="flex flex-col">
+<span class="font-body-md font-bold text-ink-navy leading-none">Alex Rivera</span>
+<span class="font-label-caps text-label-caps text-verified-gold mt-1 uppercase">Verified Student</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Top App Bar -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-16 md:ml-64 md:max-w-[calc(100%-16rem)] sticky top-0 bg-paper-bg z-40 border-b border-rule-grey">
+<div class="flex items-center gap-md">
+<button class="md:hidden p-xs">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="relative hidden sm:block group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="pl-10 pr-md py-1.5 bg-surface-container border border-rule-grey rounded-lg w-64 focus:ring-1 focus:ring-ink-navy focus:border-ink-navy transition-all font-body-md" placeholder="Search openings..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<button class="p-xs hover:bg-surface-container transition-colors rounded-full relative">
+<span class="material-symbols-outlined text-ink-navy" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error-brick rounded-full border border-paper-bg"></span>
+</button>
+<div class="flex items-center gap-xs bg-surface-container-high px-sm py-1 rounded-full border border-rule-grey">
+<span class="material-symbols-outlined text-verified-gold text-sm" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-mono text-label-mono text-ink-navy">CRED: 420</span>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="md:ml-64 p-margin-mobile md:p-margin-desktop max-w-[1200px] pb-24 md:pb-margin-desktop" id="content-canvas">
+<!-- Browse View (7.1) -->
+<section id="browse-view">
+<div class="flex flex-col gap-xl">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h2 class="font-display-lg text-display-lg text-ink-navy">Recruitment Portal</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mt-base">Find your next collaborator for hackathons, research projects, or student festivals. All listings are verified by CampusOS.</p>
+</div>
+<button class="bg-ink-navy text-white px-xl py-md rounded-lg font-bold flex items-center gap-sm hover:opacity-90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                        Post Opening
+                    </button>
+</div>
+<!-- Filters -->
+<div class="flex flex-col gap-md sticky top-[65px] bg-paper-bg py-md z-30 border-b border-rule-grey/50">
+<div class="flex items-center gap-md overflow-x-auto scroll-hide pb-base">
+<span class="font-label-caps text-label-caps shrink-0">Type:</span>
+<button class="px-md py-sm bg-ink-navy text-white rounded-full font-label-caps text-label-caps">All</button>
+<button class="px-md py-sm bg-surface-container border border-rule-grey text-on-surface-variant rounded-full font-label-caps text-label-caps hover:border-ink-navy transition-colors">Hackathon</button>
+<button class="px-md py-sm bg-surface-container border border-rule-grey text-on-surface-variant rounded-full font-label-caps text-label-caps hover:border-ink-navy transition-colors">Project</button>
+<button class="px-md py-sm bg-surface-container border border-rule-grey text-on-surface-variant rounded-full font-label-caps text-label-caps hover:border-ink-navy transition-colors">Fest</button>
+</div>
+<div class="flex items-center gap-md overflow-x-auto scroll-hide pb-base">
+<span class="font-label-caps text-label-caps shrink-0">Skills:</span>
+<button class="px-md py-sm bg-surface-container border border-rule-grey text-on-surface-variant rounded-full font-label-caps text-label-caps flex items-center gap-xs">
+                            Design <span class="material-symbols-outlined text-[16px]" data-icon="close">close</span>
+</button>
+<button class="px-md py-sm bg-surface-container border border-rule-grey text-on-surface-variant rounded-full font-label-caps text-label-caps">Engineering</button>
+<button class="px-md py-sm bg-surface-container border border-rule-grey text-on-surface-variant rounded-full font-label-caps text-label-caps">Management</button>
+<button class="px-md py-sm bg-surface-container border border-rule-grey text-on-surface-variant rounded-full font-label-caps text-label-caps">Writing</button>
+<button class="px-md py-sm text-ink-navy font-label-caps text-label-caps underline underline-offset-4">+ More</button>
+</div>
+</div>
+<!-- Recruitment Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Card 1 -->
+<div class="group bg-white border border-rule-grey p-lg flex flex-col gap-md transition-all hover:border-ink-navy cursor-pointer" onclick="showDetail()">
+<div class="flex justify-between items-start">
+<span class="font-label-mono text-label-mono text-verified-gold uppercase tracking-widest bg-surface-container px-sm py-1">Hackathon</span>
+<div class="verified-badge" title="Official Event">
+<span class="material-symbols-outlined text-[12px] text-verified-gold" data-icon="check" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-ink-navy group-hover:underline">Global BioTech Sprint</h3>
+<p class="font-body-md text-on-surface-variant line-clamp-2 mt-xs">Looking for a Lead UI/UX Designer for a 48-hour sprint focusing on lab equipment virtualization.</p>
+</div>
+<div class="flex flex-wrap gap-xs">
+<span class="px-xs py-1 border border-rule-grey font-label-mono text-[11px] uppercase text-on-surface-variant">Figma</span>
+<span class="px-xs py-1 border border-rule-grey font-label-mono text-[11px] uppercase text-on-surface-variant">Prototyping</span>
+</div>
+<div class="mt-auto pt-md border-t border-rule-grey flex items-center justify-between">
+<div class="flex flex-col gap-1 w-full">
+<div class="flex justify-between text-[11px] font-label-caps">
+<span>Headcount</span>
+<span>2/4 Filled</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-ink-navy h-full w-1/2"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-white border border-rule-grey p-lg flex flex-col gap-md transition-all hover:border-ink-navy cursor-pointer" onclick="showDetail()">
+<div class="flex justify-between items-start">
+<span class="font-label-mono text-label-mono text-ink-navy uppercase tracking-widest bg-surface-container px-sm py-1">Project</span>
+<span class="material-symbols-outlined text-outline" data-icon="schedule">schedule</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-ink-navy group-hover:underline">Autonomous Library Bot</h3>
+<p class="font-body-md text-on-surface-variant line-clamp-2 mt-xs">A long-term research project aiming to build a book-retrieval robot for the Central Library.</p>
+</div>
+<div class="flex flex-wrap gap-xs">
+<span class="px-xs py-1 border border-rule-grey font-label-mono text-[11px] uppercase text-on-surface-variant">C++</span>
+<span class="px-xs py-1 border border-rule-grey font-label-mono text-[11px] uppercase text-on-surface-variant">Robotics</span>
+<span class="px-xs py-1 border border-rule-grey font-label-mono text-[11px] uppercase text-on-surface-variant">CAD</span>
+</div>
+<div class="mt-auto pt-md border-t border-rule-grey flex items-center justify-between">
+<div class="flex flex-col gap-1 w-full">
+<div class="flex justify-between text-[11px] font-label-caps">
+<span>Headcount</span>
+<span>4/5 Filled</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-ink-navy h-full w-[80%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-white border border-rule-grey p-lg flex flex-col gap-md transition-all hover:border-ink-navy cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="font-label-mono text-label-mono text-ink-navy uppercase tracking-widest bg-surface-container px-sm py-1">Fest</span>
+<div class="verified-badge">
+<span class="material-symbols-outlined text-[12px] text-verified-gold" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-ink-navy group-hover:underline">Culture Night Curator</h3>
+<p class="font-body-md text-on-surface-variant line-clamp-2 mt-xs">Manage logistics and content for the annual international student cultural festival.</p>
+</div>
+<div class="flex flex-wrap gap-xs">
+<span class="px-xs py-1 border border-rule-grey font-label-mono text-[11px] uppercase text-on-surface-variant">Event Planning</span>
+<span class="px-xs py-1 border border-rule-grey font-label-mono text-[11px] uppercase text-on-surface-variant">Marketing</span>
+</div>
+<div class="mt-auto pt-md border-t border-rule-grey flex items-center justify-between">
+<div class="flex flex-col gap-1 w-full">
+<div class="flex justify-between text-[11px] font-label-caps">
+<span>Headcount</span>
+<span>1/10 Filled</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-verified-gold h-full w-[10%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group bg-white border border-rule-grey p-lg flex flex-col gap-md transition-all hover:border-ink-navy cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="font-label-mono text-label-mono text-ink-navy uppercase tracking-widest bg-surface-container px-sm py-1">Hackathon</span>
+<span class="material-symbols-outlined text-outline" data-icon="group">group</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-ink-navy group-hover:underline">AI Ethics Debate WebApp</h3>
+<p class="font-body-md text-on-surface-variant line-clamp-2 mt-xs">Participate in the upcoming Ethics-First AI Hackathon. Looking for Backend Devs.</p>
+</div>
+<div class="flex flex-wrap gap-xs">
+<span class="px-xs py-1 border border-rule-grey font-label-mono text-[11px] uppercase text-on-surface-variant">Python</span>
+<span class="px-xs py-1 border border-rule-grey font-label-mono text-[11px] uppercase text-on-surface-variant">FastAPI</span>
+</div>
+<div class="mt-auto pt-md border-t border-rule-grey flex items-center justify-between">
+<div class="flex flex-col gap-1 w-full">
+<div class="flex justify-between text-[11px] font-label-caps">
+<span>Headcount</span>
+<span>2/3 Filled</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-ink-navy h-full w-[66%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Detail View (7.2) - Hidden by default -->
+<section class="hidden animate-in fade-in slide-in-from-right duration-300" id="detail-view">
+<button class="flex items-center gap-xs text-ink-navy font-label-caps text-label-caps mb-xl group" onclick="hideDetail()">
+<span class="material-symbols-outlined transition-transform group-hover:-translate-x-1" data-icon="arrow_back">arrow_back</span>
+                Back to All Openings
+            </button>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-xl items-start">
+<!-- Main Info -->
+<div class="lg:col-span-2 space-y-xl">
+<div class="bg-white border border-rule-grey p-xl">
+<div class="flex items-center gap-md mb-md">
+<span class="font-label-mono text-label-mono text-verified-gold uppercase tracking-widest bg-surface-container px-sm py-1">Hackathon</span>
+<div class="flex items-center gap-xs bg-success-sage/10 text-success-sage px-sm py-1 rounded-full border border-success-sage/20 font-label-caps text-[10px]">
+<span class="w-1.5 h-1.5 rounded-full bg-success-sage animate-pulse"></span>
+                                ACTIVE RECRUITMENT
+                            </div>
+</div>
+<h1 class="font-display-lg text-display-lg text-ink-navy leading-tight">Global BioTech Sprint: Lab Equipment Virtualization</h1>
+<div class="flex flex-wrap items-center gap-xl mt-lg pt-lg border-t border-rule-grey">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Posted By</span>
+<div class="flex items-center gap-xs mt-1">
+<span class="font-body-md font-bold">BioEngineering Dept.</span>
+<div class="verified-badge">
+<span class="material-symbols-outlined text-[10px] text-verified-gold" data-icon="check" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Deadline</span>
+<span class="font-body-md font-bold mt-1">Oct 24, 2023</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Format</span>
+<span class="font-body-md font-bold mt-1">In-Person (Hall 4)</span>
+</div>
+</div>
+</div>
+<div class="bg-white border border-rule-grey p-xl prose prose-slate max-w-none">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-md">Description</h4>
+<p class="font-body-lg text-on-surface leading-relaxed">
+                            The Global BioTech Sprint is an intensive 48-hour hackathon where students collaborate to solve real-world laboratory bottlenecks. This year's focus is on "The Virtual Lab"—creating digital twins and interactive interfaces for expensive lab hardware that often has limited access.
+                        </p>
+<p class="font-body-lg text-on-surface leading-relaxed mt-md">
+                            We are looking for a student designer to join a team of three bio-engineers. Your role will be to translate complex data visualizations and equipment control flows into a clean, modern user interface. You will be responsible for high-fidelity prototyping and the final presentation deck's visual storytelling.
+                        </p>
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-md mt-xl">Required Competencies</h4>
+<div class="flex flex-wrap gap-md">
+<div class="flex items-center gap-sm px-md py-sm bg-surface-container border border-rule-grey rounded-lg">
+<span class="material-symbols-outlined text-ink-navy" data-icon="brush">brush</span>
+<span class="font-body-md">UI/UX Design</span>
+</div>
+<div class="flex items-center gap-sm px-md py-sm bg-surface-container border border-rule-grey rounded-lg">
+<span class="material-symbols-outlined text-ink-navy" data-icon="data_object">data_object</span>
+<span class="font-body-md">Figma Prototyping</span>
+</div>
+<div class="flex items-center gap-sm px-md py-sm bg-surface-container border border-rule-grey rounded-lg">
+<span class="material-symbols-outlined text-ink-navy" data-icon="science">science</span>
+<span class="font-body-md">Basic Lab Logic</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Sidebar -->
+<aside class="space-y-lg">
+<div class="bg-white border border-rule-grey p-xl">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-md">Application</h4>
+<div class="flex flex-col gap-md">
+<div>
+<label class="font-label-caps text-label-caps block mb-xs">Application Note</label>
+<textarea class="w-full bg-surface-container border border-rule-grey rounded-lg p-md font-body-md h-32 focus:ring-1 focus:ring-ink-navy outline-none" placeholder="Briefly state your experience and why you want to join..."></textarea>
+</div>
+<div class="bg-surface-container-low p-md rounded-lg border border-rule-grey/30">
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-verified-gold" data-icon="info">info</span>
+<p class="text-[12px] font-body-md text-on-surface-variant">By applying, your **Verified Student Profile** and **Cred Score** will be shared with the project lead.</p>
+</div>
+</div>
+<button class="w-full bg-ink-navy text-white py-lg rounded-lg font-bold hover:opacity-90 active:scale-[0.98] transition-all shadow-sm">
+                                Apply for Opening
+                            </button>
+<button class="w-full border border-rule-grey py-md rounded-lg font-bold text-ink-navy hover:bg-surface-container transition-all">
+                                Bookmark for Later
+                            </button>
+</div>
+</div>
+<div class="bg-white border border-rule-grey p-xl">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-md">The Team</h4>
+<div class="space-y-md">
+<div class="flex items-center gap-md">
+<img class="w-10 h-10 rounded-full border border-rule-grey" data-alt="A close-up professional headshot of a female engineering student, focused and intelligent expression. She is wearing a simple denim shirt against a neutral laboratory background. High-quality editorial style, soft daylighting, consistent with academic professional records." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn8XGRYYdO71Q3O3A8zaq4mZy4ybvXkwZRxblxJySw4nyER0RV2UMWhzDgoaDlyHHk5_7Ky0c7FwmuL60qFMUyry2Zg-2by9nElsKxcFgRh_-zL-_WH9SsP0ylO8hyUECfSnZ4cyO6NhcFEK8aCBby9mlZ4caTM9IJNkQzooqCuAnixzH7p6IfEddbI_W20bh9mzTwFdzGI2Ksb9pOWm_rl1lBsmBhHUck69uXNeKStuurvvAYISQvAf2hbZPxo0KUkcx5ANuJa2A"/>
+<div>
+<p class="font-body-md font-bold leading-none">Sarah Jenkins</p>
+<p class="text-[12px] text-on-surface-variant">Lead Engineer</p>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<img class="w-10 h-10 rounded-full border border-rule-grey" data-alt="A portrait of a male student with a kind and approachable look, wearing glasses and a formal button-down shirt. The aesthetic is clean and academic, with a soft-focus library background. Lighting is natural and crisp, emphasizing a trusted verified identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIIUSUcNgOv68rONAu0h7qram0UsnpztnidBLooQyYFzCY0PUaT-1FbcjuOStL5-Uthy8V97Xb_mxrrEZV-TZmxPy4e2rUlrORb3nc3JKAgnLARrZplScGS9rbniV6SJW9Gzmfmcy6O0DX5TOUSILJ6zHgOouyeSs4d9H53oYm4WUwTlUisVE29I_YC1zYZtxS1DwzvgMbQpRCOFNV-ki4Rb0jNhFkdJMEkPyVt0wJrerupzH-mufCnm-7U-6-WjDkFK-Iefh-iFw"/>
+<div>
+<p class="font-body-md font-bold leading-none">Mark Thorne</p>
+<p class="text-[12px] text-on-surface-variant">Systems Specialist</p>
+</div>
+</div>
+<div class="flex -space-x-2 pt-xs">
+<div class="w-8 h-8 rounded-full bg-surface-container border border-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="person_add">person_add</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container border border-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="person_add">person_add</span>
+</div>
+<span class="pl-4 font-label-caps text-[10px] self-center">2 VACANT SLOTS</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</section>
+</main>
+<!-- Mobile Bottom Navigation -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-margin-mobile py-xs bg-paper-bg border-t border-rule-grey z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-xs" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-caps text-[10px] mt-1">Ledger</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-xs" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-label-caps text-[10px] mt-1">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-xs" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+<span class="font-label-caps text-[10px] mt-1">Barter</span>
+</a>
+<a class="flex flex-col items-center justify-center text-verified-gold py-xs" href="#">
+<span class="material-symbols-outlined" data-icon="business_center" style="font-variation-settings: 'FILL' 1;">business_center</span>
+<span class="font-label-caps text-[10px] mt-1">Career</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-xs" href="#">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<span class="font-label-caps text-[10px] mt-1">Admin</span>
+</a>
+</nav>
+<script>
+        function showDetail() {
+            document.getElementById('browse-view').classList.add('hidden');
+            document.getElementById('detail-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function hideDetail() {
+            document.getElementById('detail-view').classList.add('hidden');
+            document.getElementById('browse-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Simulating Micro-interactions for stamps and buttons
+        document.querySelectorAll('.group.bg-white').forEach(card => {
+            card.addEventListener('mousedown', () => card.style.transform = 'scale(0.985)');
+            card.addEventListener('mouseup', () => card.style.transform = 'scale(1)');
+        });
+    </script>
+</body></html>

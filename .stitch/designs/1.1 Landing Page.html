@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CampusOS | The Official Campus Record</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Public+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100..900&family=Public+Sans:wght@100..900&family=Source+Serif+4:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#643f00",
+                    "on-primary-fixed": "#0f1b34",
+                    "secondary": "#845400",
+                    "primary": "#09152e",
+                    "on-secondary-fixed": "#2a1800",
+                    "primary-fixed": "#d9e2ff",
+                    "success-sage": "#5E7A63",
+                    "on-primary-container": "#8691b0",
+                    "background": "#fcf9f2",
+                    "on-secondary-container": "#744900",
+                    "ink-navy": "#1F2A44",
+                    "tertiary-fixed": "#fcdfab",
+                    "surface-container-high": "#ebe8e1",
+                    "surface": "#fcf9f2",
+                    "tertiary": "#1f1400",
+                    "primary-fixed-dim": "#bbc6e7",
+                    "secondary-fixed-dim": "#ffb958",
+                    "surface-bright": "#fcf9f2",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#382804",
+                    "outline-variant": "#c6c6ce",
+                    "surface-container-highest": "#e5e2db",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#261900",
+                    "surface-variant": "#e5e2db",
+                    "surface-dim": "#dcdad3",
+                    "inverse-surface": "#31312c",
+                    "surface-tint": "#535e7b",
+                    "surface-container": "#f0eee7",
+                    "on-tertiary-container": "#a78f61",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f6f3ec",
+                    "secondary-container": "#ffb958",
+                    "paper-bg": "#FAF7F0",
+                    "on-background": "#1c1c18",
+                    "on-tertiary-fixed-variant": "#57441d",
+                    "error-brick": "#B4482F",
+                    "tertiary-fixed-dim": "#dfc391",
+                    "on-surface-variant": "#45464d",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "verified-gold": "#C98A2C",
+                    "inverse-on-surface": "#f3f0ea",
+                    "on-surface": "#1c1c18",
+                    "rule-grey": "#D8D2C4",
+                    "inverse-primary": "#bbc6e7",
+                    "on-primary-fixed-variant": "#3b4662",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#ffddb6",
+                    "outline": "#76777e",
+                    "primary-container": "#1f2a44",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "gutter": "16px",
+                    "md": "16px",
+                    "base": "4px",
+                    "xs": "8px",
+                    "lg": "24px",
+                    "margin-desktop": "40px",
+                    "sm": "12px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "headline-md": ["\"Source Serif 4\""],
+                    "label-mono": ["IBM Plex Mono"],
+                    "label-caps": ["Public Sans"],
+                    "display-lg-mobile": ["\"Source Serif 4\""],
+                    "display-lg": ["\"Source Serif 4\""],
+                    "body-md": ["Public Sans"],
+                    "body-lg": ["Public Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #FAF7F0; scroll-behavior: smooth; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+        .card-border { border: 1px solid #D8D2C4; }
+        .rule-x { border-top: 1px solid #D8D2C4; }
+        .rule-y { border-left: 1px solid #D8D2C4; }
+        .verified-badge { position: relative; display: flex; align-items: center; justify-content: center; }
+        .verified-badge::after {
+            content: '';
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            border: 1px dashed #C98A2C;
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="font-body-md text-on-surface selection:bg-verified-gold/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface h-16 border-b border-rule-grey flex justify-between items-center px-margin-mobile md:px-margin-desktop">
+<div class="flex items-center gap-xl">
+<h1 class="font-headline-md text-headline-md text-ink-navy">CampusOS</h1>
+<nav class="hidden md:flex gap-lg items-center">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-verified-gold transition-colors" href="#features">FEATURES</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-verified-gold transition-colors" href="#ledger">HOW IT WORKS</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-verified-gold transition-colors" href="#login">LOG IN</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-ink-navy cursor-pointer md:block hidden">notifications</span>
+<button class="bg-ink-navy text-white px-lg py-xs font-label-caps text-label-caps rounded-lg hover:scale-105 active:scale-95 transition-all">SIGN UP</button>
+</div>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative overflow-hidden bg-paper-bg py-20 md:py-32 border-b border-rule-grey">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-2 gap-xl items-center">
+<div class="z-10">
+<span class="inline-block font-label-caps text-label-caps text-verified-gold mb-md px-base py-[2px] border border-verified-gold">STRICTLY FOR @COLLEGE.EDU.IN</span>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-ink-navy mb-lg leading-tight">
+                        One verified place for everything campus.
+                    </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl max-w-md">
+                        The definitive ecosystem for campus life. Replace chaotic WhatsApp groups and manual spreadsheets with a verified paper-trail.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-md">
+<button class="bg-ink-navy text-white px-xl py-md font-label-caps text-label-caps rounded-lg hover:bg-primary transition-colors">JOIN YOUR CAMPUS</button>
+<button class="border border-rule-grey text-ink-navy px-xl py-md font-label-caps text-label-caps rounded-lg hover:bg-surface-container transition-colors">VIEW DEMO</button>
+</div>
+</div>
+<div class="relative flex justify-center items-center">
+<div class="w-full h-[300px] md:h-[500px] bg-white card-border rounded-xl rotate-2 absolute top-0 -z-10 shadow-sm opacity-50"></div>
+<div class="w-full h-[300px] md:h-[500px] bg-white card-border rounded-xl -rotate-1 shadow-md flex flex-col p-lg">
+<div class="flex justify-between items-center mb-lg">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 bg-surface-container rounded-full border border-rule-grey"></div>
+<div>
+<p class="font-label-caps text-label-caps">UNIVERSITY COUNCIL</p>
+<p class="font-label-mono text-[10px] text-on-surface-variant">ID: 2024-OFFICIAL</p>
+</div>
+</div>
+<div class="w-12 h-12 flex items-center justify-center border-2 border-verified-gold text-verified-gold rounded-full rotate-12">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex-grow space-y-md">
+<div class="h-4 bg-surface-container-high w-3/4"></div>
+<div class="h-4 bg-surface-container-low w-full"></div>
+<div class="h-4 bg-surface-container-low w-5/6"></div>
+<div class="h-32 bg-paper-bg border border-dashed border-rule-grey w-full mt-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-rule-grey text-4xl">inventory_2</span>
+</div>
+</div>
+<div class="mt-xl pt-lg border-t border-rule-grey flex justify-between">
+<div class="font-label-mono text-[10px] text-on-surface-variant">SERIAL NO: AB-00129-C</div>
+<div class="font-label-mono text-[10px] text-on-surface-variant">TIMESTAMP: 10:45:01 IST</div>
+</div>
+</div>
+<!-- Paper Texture Overlay Simulation -->
+<div class="absolute inset-0 pointer-events-none opacity-[0.03]" style="background-image: url('https://www.transparenttextures.com/patterns/paper.png');"></div>
+</div>
+</div>
+</section>
+<!-- Why Verified Section -->
+<section class="py-20 md:py-32 bg-surface" id="features">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-20">
+<h3 class="font-headline-md text-headline-md text-ink-navy border-l-4 border-verified-gold pl-lg">The Pillars of Credibility</h3>
+</div>
+<div class="grid md:grid-cols-3 gap-xl">
+<div class="space-y-md">
+<span class="material-symbols-outlined text-verified-gold text-4xl">fingerprint</span>
+<h4 class="font-headline-md text-headline-md">Verification-First</h4>
+<p class="font-body-md text-on-surface-variant">No anonymous trolls. Every user is authenticated via their official university email, ensuring a space built on accountability and trust.</p>
+</div>
+<div class="space-y-md">
+<span class="material-symbols-outlined text-verified-gold text-4xl">rewarded_ads</span>
+<h4 class="font-headline-md text-headline-md">Reputation-Driven</h4>
+<p class="font-body-md text-on-surface-variant">Your actions build your ledger. Trade skills, sell books, or lead groups—every successful interaction enhances your campus credibility score.</p>
+</div>
+<div class="space-y-md">
+<span class="material-symbols-outlined text-verified-gold text-4xl">school</span>
+<h4 class="font-headline-md text-headline-md">Built for Campus</h4>
+<p class="font-body-md text-on-surface-variant">Not a generic tool. From club recruitment to skill bartering, our modules are tailor-made for the specific workflows of university life.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Module Showcase -->
+<section class="py-20 bg-paper-bg border-y border-rule-grey overflow-hidden" id="ledger">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop mb-lg flex justify-between items-end">
+<div>
+<h3 class="font-headline-md text-headline-md text-ink-navy">The Ecosystem</h3>
+<p class="font-label-mono text-label-mono text-on-surface-variant">SYSTEM_OVERVIEW: v1.0.4</p>
+</div>
+<div class="flex gap-sm">
+<button class="w-10 h-10 border border-rule-grey flex items-center justify-center rounded-lg hover:bg-white transition-colors" onclick="document.getElementById('module-scroll').scrollBy({left: -300, behavior: 'smooth'})">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 border border-rule-grey flex items-center justify-center rounded-lg hover:bg-white transition-colors" onclick="document.getElementById('module-scroll').scrollBy({left: 300, behavior: 'smooth'})">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-lg overflow-x-auto px-margin-mobile md:px-margin-desktop pb-lg no-scrollbar snap-x" id="module-scroll">
+<!-- Academic Ledger -->
+<div class="min-w-[280px] md:min-w-[340px] bg-white card-border p-lg snap-start flex flex-col h-[400px]">
+<span class="material-symbols-outlined text-ink-navy mb-md">account_balance</span>
+<h5 class="font-headline-md text-headline-md mb-xs">Academic Ledger</h5>
+<p class="text-on-surface-variant text-sm mb-lg">Unified tracking for club credits, attendance boons, and formal achievements.</p>
+<div class="flex-grow bg-paper-bg rounded p-md font-label-mono text-[11px] space-y-2">
+<div class="flex justify-between border-b border-rule-grey pb-1"><span>CREDIT_ID</span><span>TX_001</span></div>
+<div class="flex justify-between border-b border-rule-grey pb-1"><span>SIGMA_CLUB</span><span>+10.5</span></div>
+<div class="flex justify-between border-b border-rule-grey pb-1"><span>DEBATE_SOC</span><span>+4.0</span></div>
+</div>
+</div>
+<!-- Marketplace -->
+<div class="min-w-[280px] md:min-w-[340px] bg-white card-border p-lg snap-start flex flex-col h-[400px]">
+<span class="material-symbols-outlined text-ink-navy mb-md">storefront</span>
+<h5 class="font-headline-md text-headline-md mb-xs">Marketplace</h5>
+<p class="text-on-surface-variant text-sm mb-lg">Verified peer-to-peer commerce. Books, cycles, and lab gear with safe campus hand-offs.</p>
+<div class="flex-grow bg-paper-bg rounded p-md">
+<div class="h-24 bg-surface-container rounded mb-sm relative overflow-hidden">
+<div class="absolute bottom-2 left-2 bg-verified-gold text-white text-[10px] px-2 font-bold">SALE</div>
+</div>
+<div class="h-3 bg-ink-navy w-2/3 mb-2"></div>
+<div class="h-3 bg-rule-grey w-1/3"></div>
+</div>
+</div>
+<!-- Skill Barter -->
+<div class="min-w-[280px] md:min-w-[340px] bg-white card-border p-lg snap-start flex flex-col h-[400px]">
+<span class="material-symbols-outlined text-ink-navy mb-md">swap_horiz</span>
+<h5 class="font-headline-md text-headline-md mb-xs">Skill Barter</h5>
+<p class="text-on-surface-variant text-sm mb-lg">Trade your Python tutoring for a guitar lesson. Currencies of talent, not just cash.</p>
+<div class="flex-grow bg-paper-bg rounded p-md flex flex-col justify-center gap-lg">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-full bg-verified-gold/20 flex items-center justify-center text-verified-gold font-bold text-xs">A</div>
+<div class="h-2 bg-rule-grey flex-grow rounded"></div>
+<span class="material-symbols-outlined text-verified-gold">sync</span>
+<div class="h-2 bg-rule-grey flex-grow rounded"></div>
+<div class="w-8 h-8 rounded-full bg-ink-navy/20 flex items-center justify-center text-ink-navy font-bold text-xs">B</div>
+</div>
+</div>
+</div>
+<!-- Identity -->
+<div class="min-w-[280px] md:min-w-[340px] bg-white card-border p-lg snap-start flex flex-col h-[400px]">
+<span class="material-symbols-outlined text-ink-navy mb-md">badge</span>
+<h5 class="font-headline-md text-headline-md mb-xs">Digital Identity</h5>
+<p class="text-on-surface-variant text-sm mb-lg">One ID for entry, library access, and student discounts. Secure and always present.</p>
+<div class="flex-grow bg-paper-bg rounded p-md flex items-center justify-center">
+<div class="w-3/4 h-24 border-2 border-verified-gold flex flex-col p-2 relative overflow-hidden">
+<div class="w-8 h-8 bg-surface-container"></div>
+<div class="mt-2 h-2 bg-ink-navy w-1/2"></div>
+<div class="mt-1 h-2 bg-rule-grey w-1/3"></div>
+<div class="absolute -bottom-4 -right-4 w-12 h-12 rounded-full border border-verified-gold opacity-30"></div>
+</div>
+</div>
+</div>
+<!-- Recruitment -->
+<div class="min-w-[280px] md:min-w-[340px] bg-white card-border p-lg snap-start flex flex-col h-[400px]">
+<span class="material-symbols-outlined text-ink-navy mb-md">groups</span>
+<h5 class="font-headline-md text-headline-md mb-xs">Recruitment</h5>
+<p class="text-on-surface-variant text-sm mb-lg">Clubs and societies manage their rosters and events without the mess of public links.</p>
+<div class="flex-grow bg-paper-bg rounded p-md space-y-2">
+<div class="h-4 bg-white border border-rule-grey flex items-center px-2 text-[10px] justify-between"><span>John Doe</span><span class="text-success-sage">ACCEPTED</span></div>
+<div class="h-4 bg-white border border-rule-grey flex items-center px-2 text-[10px] justify-between"><span>Jane Smith</span><span class="text-verified-gold">PENDING</span></div>
+</div>
+</div>
+<!-- Events -->
+<div class="min-w-[280px] md:min-w-[340px] bg-white card-border p-lg snap-start flex flex-col h-[400px]">
+<span class="material-symbols-outlined text-ink-navy mb-md">event</span>
+<h5 class="font-headline-md text-headline-md mb-xs">Event Hub</h5>
+<p class="text-on-surface-variant text-sm mb-lg">Real-time schedule of everything on campus. Filtered by your interests and societies.</p>
+<div class="flex-grow bg-paper-bg rounded p-md">
+<div class="grid grid-cols-7 gap-1">
+<div class="h-4 bg-surface-container-high rounded-sm"></div>
+<div class="h-4 bg-surface-container-high rounded-sm"></div>
+<div class="h-4 bg-verified-gold rounded-sm"></div>
+<div class="h-4 bg-surface-container-high rounded-sm"></div>
+<div class="h-4 bg-surface-container-high rounded-sm"></div>
+<div class="h-4 bg-surface-container-high rounded-sm"></div>
+<div class="h-4 bg-surface-container-high rounded-sm"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Section -->
+<section class="py-20 md:py-32 bg-surface">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-2 gap-xl items-center">
+<div class="order-2 md:order-1 flex justify-center">
+<div class="verified-badge w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-verified-gold flex flex-col items-center justify-center text-verified-gold bg-white shadow-xl rotate-12">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-label-caps mt-sm">VERIFIED PAPER</span>
+</div>
+</div>
+<div class="order-1 md:order-2 space-y-lg">
+<h3 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-ink-navy leading-tight">
+                        The Domain Lock.
+                    </h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Our platform is physically separated by campus domains. You can only interact with peers within your institution’s verified directory. Every account is tethered to a legitimate <strong>@college.edu.in</strong> identity.
+                    </p>
+<div class="p-lg bg-surface-container-low card-border border-l-4 border-l-verified-gold">
+<p class="font-label-mono text-label-mono mb-sm text-ink-navy">PROTOCOL STATUS:</p>
+<div class="flex items-center gap-md">
+<div class="w-3 h-3 bg-success-sage rounded-full animate-pulse"></div>
+<p class="font-label-mono text-sm uppercase">Active: Enterprise-Grade Verification</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-paper-bg border-t border-rule-grey py-xl">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-start md:items-center gap-xl">
+<div>
+<h4 class="font-headline-md text-headline-md text-ink-navy mb-xs">CampusOS</h4>
+<p class="text-on-surface-variant text-sm">Official Record of Student Life.</p>
+<p class="text-on-surface-variant text-xs mt-lg font-label-mono">SPONSORED BY THE UNIVERSITY COUNCIL</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-xl">
+<div class="flex flex-col gap-sm">
+<span class="font-label-caps text-label-caps text-on-surface">LEGAL</span>
+<a class="text-sm text-on-surface-variant hover:text-ink-navy" href="#">Privacy</a>
+<a class="text-sm text-on-surface-variant hover:text-ink-navy" href="#">Terms</a>
+</div>
+<div class="flex flex-col gap-sm">
+<span class="font-label-caps text-label-caps text-on-surface">SUPPORT</span>
+<a class="text-sm text-on-surface-variant hover:text-ink-navy" href="#">Help Desk</a>
+<a class="text-sm text-on-surface-variant hover:text-ink-navy" href="#">Contact</a>
+</div>
+<div class="flex flex-col gap-sm">
+<span class="font-label-caps text-label-caps text-on-surface">CONNECT</span>
+<a class="text-sm text-on-surface-variant hover:text-ink-navy" href="#">Twitter</a>
+<a class="text-sm text-on-surface-variant hover:text-ink-navy" href="#">LinkedIn</a>
+</div>
+</div>
+</div>
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop mt-xl pt-lg border-t border-rule-grey/50 flex justify-between items-center text-[10px] text-on-surface-variant font-label-mono">
+<span>© 2024 CAMPUSOS TECHNOLOGIES</span>
+<span>BUILD_REF: 4.9.1-GOLD</span>
+</div>
+</footer>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-paper-bg border-t border-rule-grey flex justify-around items-center h-16 pb-safe">
+<a class="flex flex-col items-center justify-center text-ink-navy pt-2 border-t-2 border-verified-gold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-caps text-[10px] mt-1">HOME</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant pt-2" href="#ledger">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-label-caps text-[10px] mt-1">LEDGER</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant pt-2" href="#features">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-caps text-[10px] mt-1">MARKET</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant pt-2" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-[10px] mt-1">PROFILE</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for stamping effect
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'scale(0.96)';
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.transform = 'scale(1)';
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'scale(1)';
+            });
+        });
+
+        // Intersection observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

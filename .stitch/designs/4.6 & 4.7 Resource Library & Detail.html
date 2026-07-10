@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CampusOS | Resource Library</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:wght@600;700&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f6f3ec",
+                    "inverse-primary": "#bbc6e7",
+                    "on-surface": "#1c1c18",
+                    "on-background": "#1c1c18",
+                    "on-primary-container": "#8691b0",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e5e2db",
+                    "surface-variant": "#e5e2db",
+                    "on-secondary-fixed-variant": "#643f00",
+                    "error-container": "#ffdad6",
+                    "background": "#fcf9f2",
+                    "outline": "#76777e",
+                    "surface-container": "#f0eee7",
+                    "on-tertiary-fixed-variant": "#57441d",
+                    "secondary-container": "#ffb958",
+                    "tertiary-fixed-dim": "#dfc391",
+                    "surface-container-high": "#ebe8e1",
+                    "paper-bg": "#FAF7F0",
+                    "tertiary": "#1f1400",
+                    "surface-bright": "#fcf9f2",
+                    "on-tertiary-container": "#a78f61",
+                    "inverse-on-surface": "#f3f0ea",
+                    "ink-navy": "#1F2A44",
+                    "outline-variant": "#c6c6ce",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#744900",
+                    "inverse-surface": "#31312c",
+                    "error-brick": "#B4482F",
+                    "primary-fixed": "#d9e2ff",
+                    "surface": "#fcf9f2",
+                    "on-tertiary-fixed": "#261900",
+                    "secondary": "#845400",
+                    "on-error": "#ffffff",
+                    "success-sage": "#5E7A63",
+                    "secondary-fixed-dim": "#ffb958",
+                    "on-primary-fixed-variant": "#3b4662",
+                    "tertiary-container": "#382804",
+                    "verified-gold": "#C98A2C",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#dcdad3",
+                    "on-surface-variant": "#45464d",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#ffddb6",
+                    "rule-grey": "#D8D2C4",
+                    "primary": "#09152e",
+                    "on-primary-fixed": "#0f1b34",
+                    "on-secondary-fixed": "#2a1800",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#535e7b",
+                    "tertiary-fixed": "#fcdfab",
+                    "primary-container": "#1f2a44",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed-dim": "#bbc6e7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "lg": "24px",
+                    "md": "16px",
+                    "sm": "12px",
+                    "xs": "8px",
+                    "xl": "32px",
+                    "gutter": "16px",
+                    "margin-desktop": "40px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Public Sans"],
+                    "label-mono": ["IBM Plex Mono"],
+                    "display-lg-mobile": ["\"Source Serif 4\""],
+                    "label-caps": ["Public Sans"],
+                    "body-lg": ["Public Sans"],
+                    "display-lg": ["\"Source Serif 4\""],
+                    "headline-md": ["\"Source Serif 4\""]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1.5px solid #C98A2C;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            color: #C98A2C;
+        }
+        .stamp-effect {
+            position: relative;
+        }
+        .stamp-effect::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        .scroll-hide::-webkit-scrollbar { display: none; }
+        .scroll-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-paper-bg text-on-surface font-body-md antialiased">
+<!-- Sidebar Navigation -->
+<aside class="hidden md:flex flex-col h-full w-64 fixed left-0 top-0 border-r border-rule-grey bg-paper-bg dark:bg-surface py-xl px-md z-50">
+<div class="mb-xl px-xs">
+<h1 class="font-headline-md text-headline-md font-bold text-ink-navy dark:text-primary-fixed">CampusOS</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-xs">Verified Student</p>
+</div>
+<nav class="flex-1 space-y-xs">
+<a class="flex items-center gap-md p-xs rounded transition-colors duration-200 text-on-surface-variant dark:text-outline hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-caps text-label-caps">Ledger</span>
+</a>
+<a class="flex items-center gap-md p-xs rounded transition-colors duration-200 text-ink-navy dark:text-primary-fixed font-bold border-r-4 border-verified-gold bg-surface-container-high dark:bg-surface-container-highest" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-caps text-label-caps">Marketplace</span>
+</a>
+<a class="flex items-center gap-md p-xs rounded transition-colors duration-200 text-on-surface-variant dark:text-outline hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span class="font-label-caps text-label-caps">Barter</span>
+</a>
+<a class="flex items-center gap-md p-xs rounded transition-colors duration-200 text-on-surface-variant dark:text-outline hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-label-caps text-label-caps">Recruitment</span>
+</a>
+<a class="flex items-center gap-md p-xs rounded transition-colors duration-200 text-on-surface-variant dark:text-outline hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="font-label-caps text-label-caps">Moderation</span>
+</a>
+<a class="flex items-center gap-md p-xs rounded transition-colors duration-200 text-on-surface-variant dark:text-outline hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-rule-grey pt-md space-y-xs">
+<a class="flex items-center gap-md p-xs rounded transition-colors duration-200 text-on-surface-variant dark:text-outline hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+<a class="flex items-center gap-md p-xs rounded transition-colors duration-200 text-on-surface-variant dark:text-outline hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-caps text-label-caps">Support</span>
+</a>
+</div>
+</aside>
+<!-- Top App Bar -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-16 ml-0 md:ml-64 md:max-w-[calc(100%-16rem)] sticky top-0 bg-paper-bg dark:bg-surface border-b border-rule-grey z-40">
+<div class="flex items-center gap-md flex-1">
+<div class="relative w-full max-w-sm">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container border border-rule-grey rounded-lg pl-xl pr-md py-xs font-body-md focus:outline-none focus:border-ink-navy" placeholder="Search Resource Library..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-ink-navy">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-ink-navy">verified_user</button>
+<div class="w-8 h-8 rounded-full border border-rule-grey bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a university student for a digital ID card. The lighting is soft and even, highlighting a friendly yet academic expression. The background is a clean, neutral off-white to match a modern light-mode editorial aesthetic. The composition is a classic headshot, emphasizing clarity and official identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0MkAIopMlu66y8M3X-pKvINWqcdmjOPY4In5ooBWD2Zr4jjLGOvTOT6hMtit29ol6t26iRCwUJsyOguWx5TTnMsNZPVd7piD7RZ62dUlRpWT8QTiak0eAPnCxBrCdnSlDhFArObZ2oot409vEy-RggeLHOZg_tI9Ut3tl-hmxOlW9hog4o2PwQGi8GhDkCcforEL_qaP4CSabGmf4xOTd94snxRTqhVtFPEYeSHHc3QvWVnNuykVJP8XyfceiPiwKKt3AUePwR8k"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-0 md:ml-64 transition-all duration-300 min-h-screen pb-24">
+<!-- Browse Screen (4.6) -->
+<section class="p-margin-desktop max-w-[1200px] mx-auto" id="browse-screen">
+<div class="mb-xl flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h2 class="font-display-lg text-display-lg text-ink-navy">Resource Library</h2>
+<p class="text-on-surface-variant max-w-xl mt-xs">Browse the definitive collection of student-contributed notes, past papers, and project archives.</p>
+</div>
+<button class="bg-ink-navy text-on-primary px-lg py-sm rounded-lg font-label-caps flex items-center gap-xs hover:bg-primary transition-all">
+<span class="material-symbols-outlined">upload_file</span>
+                    Contribute
+                </button>
+</div>
+<!-- Filters -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md mb-xl">
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant">Subject</label>
+<select class="w-full bg-white border border-rule-grey rounded-lg px-md py-sm focus:border-ink-navy focus:ring-0">
+<option>All Subjects</option>
+<option>Computer Science</option>
+<option>Mechanical Eng.</option>
+<option>Architecture</option>
+</select>
+</div>
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant">Year</label>
+<select class="w-full bg-white border border-rule-grey rounded-lg px-md py-sm focus:border-ink-navy focus:ring-0">
+<option>All Years</option>
+<option>Freshman</option>
+<option>Sophomore</option>
+<option>Junior</option>
+<option>Senior</option>
+</select>
+</div>
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant">Type</label>
+<div class="flex gap-xs">
+<button class="px-md py-sm rounded-lg border border-rule-grey bg-ink-navy text-white font-label-caps text-xs">All</button>
+<button class="px-md py-sm rounded-lg border border-rule-grey bg-white text-on-surface-variant hover:border-ink-navy transition-colors font-label-caps text-xs">Notes</button>
+<button class="px-md py-sm rounded-lg border border-rule-grey bg-white text-on-surface-variant hover:border-ink-navy transition-colors font-label-caps text-xs">PYQ</button>
+</div>
+</div>
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant">Sort By</label>
+<select class="w-full bg-white border border-rule-grey rounded-lg px-md py-sm focus:border-ink-navy focus:ring-0">
+<option>Highest Rated</option>
+<option>Most Recent</option>
+<option>Most Downloaded</option>
+</select>
+</div>
+</div>
+<!-- Resource Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Card 1 -->
+<div class="cursor-pointer group bg-white border border-rule-grey rounded-lg p-lg hover:border-ink-navy transition-all duration-300" onclick="showDetail()">
+<div class="flex justify-between items-start mb-md">
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-low rounded border border-rule-grey group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[32px]">description</span>
+</div>
+<div class="flex items-center gap-xs text-verified-gold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-mono text-xs">4.8</span>
+</div>
+</div>
+<h3 class="font-headline-md text-ink-navy line-clamp-2 group-hover:underline underline-offset-4 decoration-1 mb-xs">Advanced Algorithms - Comprehensive Mid-Term Prep</h3>
+<div class="flex items-center gap-xs mb-lg">
+<span class="font-label-caps text-[10px] px-xs py-[2px] bg-surface-container-highest rounded">NOTES</span>
+<span class="font-label-caps text-[10px] px-xs py-[2px] bg-surface-container-highest rounded">CS301</span>
+</div>
+<div class="pt-md border-t border-rule-grey flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A minimalist avatar for a university student, featuring a simplified profile silhouette in high-contrast ink-navy and white. The aesthetic is clean and academic, reflecting a professional student profile on a modern digital platform. Soft directional lighting creates a crisp edge against the neutral background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPQ9sTJr6MxJA1WkEzEXGsIwglxKIE3Jq4obGzoD97YgBNyEih6v0zm4WTwCJNcvtt5MslpmLPDEf9fG9xHOgRoSHIUG4wvQz5_W4_Aw9GciD3-HMibslssC0TAYQwQuk2sH22cqXPMWyILKVc6Y97zTnu6CN60ZOLr9GT3lgQMhR1X2HJ2JF7dqLEkYxf0tMMvOE1nMNir-b2VaSG5Kz4Jx1BbaVR_Y5FASnIrY9BIfxaF8ZLvQkXkQEOPUl0u-8Qil12_CR2lZo"/>
+</div>
+<span class="font-label-mono text-xs text-on-surface-variant">E. Chen</span>
+</div>
+<span class="font-label-mono text-[10px] text-outline">OCT 24, 2023</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="cursor-pointer group bg-white border border-rule-grey rounded-lg p-lg hover:border-ink-navy transition-all duration-300" onclick="showDetail()">
+<div class="flex justify-between items-start mb-md">
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-low rounded border border-rule-grey group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[32px]">history_edu</span>
+</div>
+<div class="flex items-center gap-xs text-verified-gold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-mono text-xs">4.9</span>
+</div>
+</div>
+<h3 class="font-headline-md text-ink-navy line-clamp-2 group-hover:underline underline-offset-4 decoration-1 mb-xs">Fluid Mechanics PYQ Bundle (2018-2022)</h3>
+<div class="flex items-center gap-xs mb-lg">
+<span class="font-label-caps text-[10px] px-xs py-[2px] bg-surface-container-highest rounded">PYQ</span>
+<span class="font-label-caps text-[10px] px-xs py-[2px] bg-surface-container-highest rounded">MECH</span>
+</div>
+<div class="pt-md border-t border-rule-grey flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A clean, high-end profile headshot of a student for a university ledger system. The subject has a serious, focused expression, set against a backdrop of a blurred university library with warm, golden wood tones. The style is modern editorial, with high clarity and a crisp professional feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOVlZBUoFMBko4ix6lmoDGZRQSJeQhqCX5a0k_Ez6iJOmf811JMbYISG551spDRkHqNj08enoqkPJet7yjLWUdVnYzl0nh-f_J45dl93Ut-vgmdhBYqWJaKCLKGPbrZeH6B82tCbLDtBIKdK-Iky_6KPFFRM8eqJf5436cgbTytm87DVVBW_x-DUvVEGmSHPir5BmCnAVlv4vgNskCZRmwvjJXsUqQhHOQ6Z05FkI1Jip586KnP3_bTuqKBZ2YRayoiUzHaJ5A_f8"/>
+</div>
+<span class="font-label-mono text-xs text-on-surface-variant">A. Marcus</span>
+</div>
+<span class="font-label-mono text-[10px] text-outline">NOV 12, 2023</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="cursor-pointer group bg-white border border-rule-grey rounded-lg p-lg hover:border-ink-navy transition-all duration-300" onclick="showDetail()">
+<div class="flex justify-between items-start mb-md">
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-low rounded border border-rule-grey group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[32px]">inventory_2</span>
+</div>
+<div class="flex items-center gap-xs text-verified-gold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-mono text-xs">5.0</span>
+</div>
+</div>
+<h3 class="font-headline-md text-ink-navy line-clamp-2 group-hover:underline underline-offset-4 decoration-1 mb-xs">Urban Design Project: Sustainable Transit Hub</h3>
+<div class="flex items-center gap-xs mb-lg">
+<span class="font-label-caps text-[10px] px-xs py-[2px] bg-surface-container-highest rounded">PROJECT</span>
+<span class="font-label-caps text-[10px] px-xs py-[2px] bg-surface-container-highest rounded">ARCH</span>
+</div>
+<div class="pt-md border-t border-rule-grey flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-6 h-6 rounded-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A crisp portrait of an architecture student with a creative and attentive look. The lighting is bright and airy, with a minimalist background that suggests a clean studio environment. The image uses a palette of soft greys and deep blues, aligning with a high-end stationery aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk-Y2bNt5Erq4mEFOsd8PNHxLhVKr0x9UarB_DhNASd-g8YDaSJz-Tl2fBe0jR_N-PwzlK44ukvyjOTEFDxYWTeuZDMpEnhXwpDEWzFB1_DYaK0PJSBI4RLgFYMKeGhSS-FBMrQ03nkk8lcY_daq-01DwCndC8tBjq7HBSt4-z6A3bJqbd1-YLg2sRkOnryW9Np2tIBgxOV4fsBtnXGlnmW7WeOGZl0K4K8lyk7_QvWzfle36h0Fc8-vX_xfc0MaNDyxx9f36mLew"/>
+</div>
+<span class="font-label-mono text-xs text-on-surface-variant">L. Saito</span>
+</div>
+<span class="font-label-mono text-[10px] text-outline">SEP 30, 2023</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Resource Detail Screen (4.7) -->
+<section class="hidden p-margin-desktop max-w-[1200px] mx-auto animate-in fade-in duration-500" id="detail-screen">
+<button class="flex items-center gap-xs text-on-surface-variant hover:text-ink-navy mb-lg group" onclick="hideDetail()">
+<span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform">arrow_back</span>
+<span class="font-label-caps">Back to Library</span>
+</button>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-xl">
+<!-- Left: Preview Pane -->
+<div class="lg:col-span-8 space-y-lg">
+<div class="bg-white border border-rule-grey rounded-lg overflow-hidden stamp-effect">
+<div class="bg-surface-container px-lg py-md border-b border-rule-grey flex justify-between items-center">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-ink-navy">description</span>
+<span class="font-label-mono text-sm">Advanced_Algo_Midterm_Prep_2023.pdf</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="font-label-mono text-xs text-outline">Page 1 of 12</span>
+<button class="material-symbols-outlined text-on-surface-variant">fullscreen</button>
+</div>
+</div>
+<div class="aspect-[4/5] bg-surface-container-highest flex items-center justify-center p-xl">
+<div class="w-full h-full bg-white shadow-sm border border-rule-grey p-xl overflow-hidden relative">
+<!-- Mock Document Content -->
+<div class="space-y-md opacity-60">
+<div class="h-8 w-48 bg-surface-container rounded mb-xl"></div>
+<div class="h-4 w-full bg-surface-container rounded"></div>
+<div class="h-4 w-full bg-surface-container rounded"></div>
+<div class="h-4 w-3/4 bg-surface-container rounded"></div>
+<div class="h-40 w-full bg-surface-container-low rounded my-xl"></div>
+<div class="h-4 w-full bg-surface-container rounded"></div>
+<div class="h-4 w-5/6 bg-surface-container rounded"></div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center bg-white/40 backdrop-blur-[2px]">
+<div class="text-center p-lg bg-white border-2 border-rule-grey rounded-lg shadow-xl">
+<span class="material-symbols-outlined text-[48px] text-ink-navy mb-md">lock</span>
+<p class="font-headline-md text-ink-navy mb-md">Download to view full resource</p>
+<button class="bg-ink-navy text-white px-xl py-md rounded-lg font-label-caps hover:bg-primary transition-all">Download PDF (4.2 MB)</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white border border-rule-grey rounded-lg p-lg">
+<h3 class="font-headline-md text-ink-navy mb-md">Resource Description</h3>
+<p class="text-on-surface-variant mb-md">These notes cover the first half of the Advanced Algorithms course (CS301). They include detailed explanations of dynamic programming, graph algorithms (BFS/DFS/Dijkstra), and complexity analysis with hand-drawn examples for clearer understanding. Verified against the 2023 curriculum.</p>
+<div class="flex flex-wrap gap-sm">
+<span class="font-label-mono text-xs px-md py-sm bg-surface-container rounded border border-rule-grey">#algorithms</span>
+<span class="font-label-mono text-xs px-md py-sm bg-surface-container rounded border border-rule-grey">#computerscience</span>
+<span class="font-label-mono text-xs px-md py-sm bg-surface-container rounded border border-rule-grey">#exam_prep</span>
+</div>
+</div>
+</div>
+<!-- Right: Side Info -->
+<div class="lg:col-span-4 space-y-lg">
+<!-- Uploader Snippet -->
+<div class="bg-white border border-rule-grey rounded-lg p-lg">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-md">Uploaded By</h4>
+<div class="flex items-center gap-md mb-lg">
+<div class="relative">
+<div class="w-16 h-16 rounded-full border-2 border-verified-gold p-[2px]">
+<img class="w-full h-full rounded-full object-cover" data-alt="A detailed professional headshot of a high-achieving student. The subject has an approachable and sharp look, wearing academic attire. The lighting is professional studio quality with subtle shadows that provide depth, set against a pristine, light-mode editorial background of off-white paper texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDN5dcYuCONpixcOdJhgTzJF5U5kfgM6j_9GKURALl_Z9ymQuuBNbqVtly3eheEXKGlzdVjs28smFWE8h2ienLw0d7rMWDBKDyPZLsfWOgcu2mfkNTlS6R62SyqI8n2g55458QjJ7PcHrDX9G_sxX_1zuhKBDkPWMf5HNhlN0IbAA1XecpNcshfmeMwUoPv1FzCt4aRRm8-U5SCWZa-dx2xHKUjQr1UaDCzcK-UFLBwTKld489ag5JyJkeM-wIJSED7oyt4UwTbAk"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-white rounded-full p-[2px]">
+<div class="verified-badge bg-white">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+</div>
+<div>
+<p class="font-headline-md text-ink-navy text-lg">Elizabeth Chen</p>
+<p class="font-label-mono text-xs text-on-surface-variant">Computer Science, Year 3</p>
+</div>
+</div>
+<button class="w-full py-sm border border-rule-grey rounded-lg font-label-caps text-ink-navy hover:bg-surface-container transition-colors">View Profile</button>
+</div>
+<!-- Stats & Ratings -->
+<div class="bg-white border border-rule-grey rounded-lg p-lg">
+<div class="grid grid-cols-2 gap-md mb-lg">
+<div class="text-center p-md bg-surface-container-low border border-rule-grey rounded-lg">
+<p class="font-label-mono text-xs text-outline mb-xs">Downloads</p>
+<p class="font-headline-md text-ink-navy">1,248</p>
+</div>
+<div class="text-center p-md bg-surface-container-low border border-rule-grey rounded-lg">
+<p class="font-label-mono text-xs text-outline mb-xs">Rating</p>
+<div class="flex items-center justify-center gap-xs">
+<p class="font-headline-md text-ink-navy">4.8</p>
+<span class="material-symbols-outlined text-verified-gold text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<div class="space-y-md">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant">Recent Reviews</h4>
+<div class="space-y-sm pb-md border-b border-rule-grey">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-xs text-verified-gold">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-mono text-[10px] text-outline">2 days ago</span>
+</div>
+<p class="text-sm text-on-surface-variant italic">"Saved my life for the midterm. The DP explanation is top-tier."</p>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-xs text-verified-gold">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+</div>
+<span class="font-label-mono text-[10px] text-outline">1 week ago</span>
+</div>
+<p class="text-sm text-on-surface-variant italic">"Clear and concise. Highly recommended."</p>
+</div>
+</div>
+<button class="w-full mt-lg py-md bg-white border border-ink-navy text-ink-navy rounded-lg font-label-caps hover:bg-surface-container transition-all">Submit a Review</button>
+</div>
+<!-- Action Button -->
+<button class="w-full py-lg bg-ink-navy text-white rounded-lg font-label-caps text-lg shadow-sm flex items-center justify-center gap-md hover:bg-primary hover:shadow-lg transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">download</span>
+                        Download Resource
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-margin-mobile py-xs bg-paper-bg border-t border-rule-grey z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-caps text-[10px]">Ledger</span>
+</a>
+<a class="flex flex-col items-center justify-center text-verified-gold active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-caps text-[10px]">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">handshake</span>
+<span class="font-label-caps text-[10px]">Barter</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">business_center</span>
+<span class="font-label-caps text-[10px]">Career</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="font-label-caps text-[10px]">Admin</span>
+</a>
+</nav>
+<script>
+        function showDetail() {
+            document.getElementById('browse-screen').classList.add('hidden');
+            document.getElementById('detail-screen').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function hideDetail() {
+            document.getElementById('detail-screen').classList.add('hidden');
+            document.getElementById('browse-screen').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        // Simulating micro-interactions
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'scale(1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

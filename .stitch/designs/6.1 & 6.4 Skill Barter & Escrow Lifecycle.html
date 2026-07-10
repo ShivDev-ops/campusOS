@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CampusOS | Skill Barter</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Source+Serif+4:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .verified-badge-stamp {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 1.5px solid #C98A2C;
+            color: #C98A2C;
+        }
+        .editorial-rule {
+            border-bottom: 1px solid #D8D2C4;
+        }
+        /* Custom Scrollbar for Editorial Feel */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #FAF7F0; }
+        ::-webkit-scrollbar-thumb { background: #D8D2C4; border-radius: 3px; }
+        
+        .active-nav-border {
+            border-right: 4px solid #C98A2C;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "surface-container-low": "#f6f3ec",
+                "inverse-primary": "#bbc6e7",
+                "on-surface": "#1c1c18",
+                "on-background": "#1c1c18",
+                "on-primary-container": "#8691b0",
+                "on-primary": "#ffffff",
+                "surface-container-highest": "#e5e2db",
+                "surface-variant": "#e5e2db",
+                "on-secondary-fixed-variant": "#643f00",
+                "error-container": "#ffdad6",
+                "background": "#fcf9f2",
+                "outline": "#76777e",
+                "surface-container": "#f0eee7",
+                "on-tertiary-fixed-variant": "#57441d",
+                "secondary-container": "#ffb958",
+                "tertiary-fixed-dim": "#dfc391",
+                "surface-container-high": "#ebe8e1",
+                "paper-bg": "#FAF7F0",
+                "tertiary": "#1f1400",
+                "surface-bright": "#fcf9f2",
+                "on-tertiary-container": "#a78f61",
+                "inverse-on-surface": "#f3f0ea",
+                "ink-navy": "#1F2A44",
+                "outline-variant": "#c6c6ce",
+                "on-tertiary": "#ffffff",
+                "on-secondary-container": "#744900",
+                "inverse-surface": "#31312c",
+                "error-brick": "#B4482F",
+                "primary-fixed": "#d9e2ff",
+                "surface": "#fcf9f2",
+                "on-tertiary-fixed": "#261900",
+                "secondary": "#845400",
+                "on-error": "#ffffff",
+                "success-sage": "#5E7A63",
+                "secondary-fixed-dim": "#ffb958",
+                "on-primary-fixed-variant": "#3b4662",
+                "tertiary-container": "#382804",
+                "verified-gold": "#C98A2C",
+                "error": "#ba1a1a",
+                "surface-dim": "#dcdad3",
+                "on-surface-variant": "#45464d",
+                "surface-container-lowest": "#ffffff",
+                "secondary-fixed": "#ffddb6",
+                "rule-grey": "#D8D2C4",
+                "primary": "#09152e",
+                "on-primary-fixed": "#0f1b34",
+                "on-secondary-fixed": "#2a1800",
+                "on-error-container": "#93000a",
+                "surface-tint": "#535e7b",
+                "tertiary-fixed": "#fcdfab",
+                "primary-container": "#1f2a44",
+                "on-secondary": "#ffffff",
+                "primary-fixed-dim": "#bbc6e7"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "margin-mobile": "20px",
+                "lg": "24px",
+                "md": "16px",
+                "sm": "12px",
+                "xs": "8px",
+                "xl": "32px",
+                "gutter": "16px",
+                "margin-desktop": "40px",
+                "base": "4px"
+              },
+              "fontFamily": {
+                "body-md": ["Public Sans"],
+                "label-mono": ["IBM Plex Mono"],
+                "display-lg-mobile": ["Source Serif 4"],
+                "label-caps": ["Public Sans"],
+                "body-lg": ["Public Sans"],
+                "display-lg": ["Source Serif 4"],
+                "headline-md": ["Source Serif 4"]
+              },
+              "fontSize": {
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "label-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                "display-lg-mobile": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="bg-paper-bg text-on-surface font-body-md selection:bg-verified-gold/30">
+<!-- Desktop SideNav -->
+<aside class="hidden md:flex flex-col h-full w-64 fixed left-0 top-0 border-r border-rule-grey bg-paper-bg py-xl px-md z-50">
+<div class="mb-xl px-md">
+<h1 class="font-headline-md text-headline-md font-bold text-ink-navy">CampusOS</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-xs">Verified Student</p>
+</div>
+<nav class="flex-1 space-y-xs">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-body-md">Ledger</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-body-md">Marketplace</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-ink-navy font-bold border-r-4 border-verified-gold bg-surface-container-high" href="#">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span class="font-body-md">Barter</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-body-md">Recruitment</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="font-body-md">Moderation</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-body-md">Profile</span>
+</a>
+</nav>
+<div class="pt-xl border-t border-rule-grey flex flex-col gap-xs px-md">
+<a class="flex items-center gap-md py-xs text-on-surface-variant hover:text-ink-navy transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+<a class="flex items-center gap-md py-xs text-on-surface-variant hover:text-ink-navy transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-caps text-label-caps">Support</span>
+</a>
+</div>
+</aside>
+<!-- Top AppBar (Desktop) -->
+<header class="hidden md:flex justify-between items-center w-full px-margin-desktop h-16 ml-64 max-w-[calc(100%-16rem)] sticky top-0 bg-paper-bg z-40 border-b border-rule-grey">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-lowest border border-rule-grey rounded-lg pl-xl pr-md py-xs font-body-md focus:ring-1 focus:ring-ink-navy focus:border-ink-navy transition-all" placeholder="Search barter skills or sessions..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<button class="relative text-on-surface-variant hover:text-ink-navy transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error-brick rounded-full border-2 border-paper-bg"></span>
+</button>
+<div class="flex items-center gap-md bg-surface-container rounded-full pl-xs pr-md py-xs border border-rule-grey">
+<img class="w-8 h-8 rounded-full border border-rule-grey object-cover" data-alt="A portrait of a college student with a professional and clean academic look, captured in soft, natural studio lighting that emphasizes a modern light-mode aesthetic. The background is a crisp, minimal architectural space with clean lines, using a palette of neutral creams and soft grays to maintain a premium, verified feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_rawd_15hjHgs9RtV55b5mRLFV8z5yejD0RrOWcPBJDxrtT4hIHS2Wk87K-KJP8oH4jqs33TnWT66y9ufBhvg_sh_ubi1INklwtk9N-0YZjSLF3p3Aweg--OM1L3-p3kRI5-TjR-2jJiiy1UIchRIBmQeJYzCfwz8O_aD5uc1nMFE3JaXUhNpQbl-eo5yu-h5M6O3AWsMY7HWb7QlOsKFH60538QXJJ-e52dveIoJprP3fygCJ1cy97ZJFQ3xABEc_VFWB3JjbGc"/>
+<span class="font-label-mono text-label-mono text-ink-navy uppercase">ID: 8842-X</span>
+</div>
+</div>
+</header>
+<!-- Mobile Bottom Nav -->
+<nav class="fixed bottom-0 left-0 w-full flex md:hidden justify-around items-center px-margin-mobile py-xs bg-paper-bg border-t border-rule-grey z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-caps text-[10px] mt-1 uppercase">Ledger</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-caps text-[10px] mt-1 uppercase">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-verified-gold scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">handshake</span>
+<span class="font-label-caps text-[10px] mt-1 uppercase">Barter</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">business_center</span>
+<span class="font-label-caps text-[10px] mt-1 uppercase">Career</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="font-label-caps text-[10px] mt-1 uppercase">Admin</span>
+</a>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-0 md:ml-64 p-margin-mobile md:p-margin-desktop min-h-screen pb-24">
+<!-- View Switcher (Browse vs Session Detail Simulation) -->
+<div class="max-w-[1200px] mx-auto">
+<section class="space-y-xl" id="browse-view">
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-md border-b border-rule-grey pb-lg">
+<div>
+<h2 class="font-headline-md text-headline-md text-ink-navy">Skill Barter Registry</h2>
+<p class="font-body-md text-on-surface-variant mt-xs">Exchange knowledge. Build campus credibility.</p>
+</div>
+<div class="flex gap-xs flex-wrap">
+<span class="bg-ink-navy text-on-primary px-md py-xs rounded-full font-label-caps text-label-caps flex items-center gap-xs">
+                            Applied Math <span class="material-symbols-outlined text-[14px]">close</span>
+</span>
+<button class="border border-rule-grey bg-white px-md py-xs rounded-full font-label-caps text-label-caps hover:bg-surface-container transition-colors">Coding</button>
+<button class="border border-rule-grey bg-white px-md py-xs rounded-full font-label-caps text-label-caps hover:bg-surface-container transition-colors">Design</button>
+<button class="border border-rule-grey bg-white px-md py-xs rounded-full font-label-caps text-label-caps hover:bg-surface-container transition-colors">Writing</button>
+</div>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Offer Card 1 -->
+<div class="bg-white border border-rule-grey rounded-lg p-lg flex flex-col gap-lg group hover:border-ink-navy transition-all">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-md">
+<div class="relative">
+<img class="w-12 h-12 rounded-full border border-rule-grey" data-alt="A close-up portrait of a student mentor with a friendly and intelligent expression. The lighting is bright and clean, mimicking a professional academic office. The color palette consists of crisp whites, soft tans, and deep navy accents, reflecting a high-quality editorial aesthetic for a campus digital platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbEtAYPIjRNVyedXDeK_CGNnpPdwxEmMwj1E_tS6DEToxrmErCDZXiwMHUlxBTmatMPjxqNp6huTzZwqUXcSIwhiq8mdo_9df-7O7O9B_V1YBSJSqGCTfb2o6N7cm3NkXnA50z-DxIHL8_vfm3wNO7mXSRtUWKLJ0JzuubR9k1cu99vNUcj-4Zo_HP7gJ71OWB00hi6GnlJUXm2rn8YalL6UpdsP-YWhfv4P7_CWHPxvRKd62RuJ662U0Tc6ctRt62fVirIMYowaY"/>
+<div class="absolute -bottom-1 -right-1 verified-badge-stamp bg-white">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div>
+<p class="font-label-mono text-label-mono text-ink-navy">ELARA VANCE</p>
+<p class="font-label-caps text-label-caps text-verified-gold">TIER III MENTOR</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-ink-navy">open_in_new</span>
+</div>
+<div class="editorial-rule"></div>
+<div>
+<h3 class="font-headline-md text-[20px] text-ink-navy mb-xs">UI Prototyping in Figma</h3>
+<p class="font-body-md text-on-surface-variant line-clamp-2">Willing to exchange 2 hours of advanced prototyping logic for help with Econ 101 problem sets.</p>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="font-label-mono text-label-mono uppercase">2 Hours Commitment</span>
+</div>
+<button class="bg-surface-container px-md py-xs rounded-lg font-label-caps text-label-caps text-ink-navy hover:bg-ink-navy hover:text-white transition-all">Request</button>
+</div>
+</div>
+<!-- Offer Card 2 -->
+<div class="bg-white border border-rule-grey rounded-lg p-lg flex flex-col gap-lg group hover:border-ink-navy transition-all">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-md">
+<div class="relative">
+<img class="w-12 h-12 rounded-full border border-rule-grey" data-alt="A professional student portrait showing a confident individual against a minimalist library backdrop. The photo has a soft-focus background with crisp, warm lighting that highlights the verified status. The colors are muted earth tones like sand and slate, providing a sophisticated, academic feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMNTe-Q6Gs5Xi6ul4VrIXmgIYhV99kMfoTFSdxPxL6Bvk1cQwjLbQMl1Xe5vnCL_FatchjYRHR5ec8bgpjryD8rPkRwBTTAXq0RAI3p7Q3fFeTfmco5bGalCl5asYrQW3w0gtHPJZfztsvgvgGMwOBv4agyuId-N4yt9D2rnaMF8jqtBL5aye7ehZ5yf_e27gR1PFIB5bbVzNtVpKa35sk0ODggq6rvRspRKSoK7aWxvbqNrwrZnWIEGdPgyQntrFksbFm8XpXLtg"/>
+<div class="absolute -bottom-1 -right-1 verified-badge-stamp bg-white">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div>
+<p class="font-label-mono text-label-mono text-ink-navy">JULIAN CHEN</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant">TIER I PEER</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-ink-navy">open_in_new</span>
+</div>
+<div class="editorial-rule"></div>
+<div>
+<h3 class="font-headline-md text-[20px] text-ink-navy mb-xs">Linear Algebra Tutoring</h3>
+<p class="font-body-md text-on-surface-variant line-clamp-2">Focusing on Eigenvectors and Vector Spaces. Seeking help with Spanish conversational practice.</p>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span class="font-label-mono text-label-mono uppercase">1.5 Hours Commitment</span>
+</div>
+<button class="bg-surface-container px-md py-xs rounded-lg font-label-caps text-label-caps text-ink-navy hover:bg-ink-navy hover:text-white transition-all">Request</button>
+</div>
+</div>
+<!-- Offer Card 3 (Bento-style tall) -->
+<div class="bg-surface-container-high border border-rule-grey rounded-lg p-lg flex flex-col gap-lg group hover:border-verified-gold transition-all">
+<div class="flex-1 flex flex-col justify-center items-center text-center py-xl">
+<div class="w-16 h-16 rounded-full border-2 border-dashed border-rule-grey flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-outline text-[32px]">add</span>
+</div>
+<h3 class="font-headline-md text-[20px] text-ink-navy">List Your Skill</h3>
+<p class="font-body-md text-on-surface-variant px-xl">Deposit your expertise into the campus exchange ledger.</p>
+<button class="mt-lg border-2 border-ink-navy px-xl py-xs rounded-lg font-label-caps text-label-caps text-ink-navy hover:bg-ink-navy hover:text-white transition-all">Create Offer</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Spacer -->
+<div class="h-24 md:h-32"></div>
+<!-- Session Detail View: ESCROW LIFECYCLE (State: BookED) -->
+<section class="max-w-4xl mx-auto space-y-xl">
+<div class="flex items-center gap-md mb-xl">
+<button class="w-10 h-10 rounded-full border border-rule-grey flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="font-headline-md text-headline-md text-ink-navy">Session Protocol 882-B</h2>
+<span class="ml-auto font-label-mono text-label-mono bg-success-sage/10 text-success-sage px-md py-xs rounded uppercase">Status: Booked</span>
+</div>
+<!-- Lifecycle Tracker -->
+<div class="bg-white border border-rule-grey rounded-lg p-xl relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-verified-gold"></div>
+<!-- Progress Bar -->
+<div class="relative flex justify-between items-center mb-xl">
+<div class="absolute top-1/2 left-0 w-full h-[2px] bg-surface-container-highest -translate-y-1/2 -z-10"></div>
+<div class="absolute top-1/2 left-0 w-0 h-[2px] bg-verified-gold -translate-y-1/2 -z-10" style="width: 15%;"></div>
+<!-- Step 1: Booked -->
+<div class="flex flex-col items-center gap-xs bg-white px-md">
+<div class="w-8 h-8 rounded-full bg-verified-gold flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[18px]">event_available</span>
+</div>
+<span class="font-label-caps text-[10px] text-verified-gold uppercase font-bold">Booked</span>
+</div>
+<!-- Step 2: In Progress -->
+<div class="flex flex-col items-center gap-xs bg-white px-md">
+<div class="w-8 h-8 rounded-full border-2 border-rule-grey bg-white flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">In Progress</span>
+</div>
+<!-- Step 3: Awaiting -->
+<div class="flex flex-col items-center gap-xs bg-white px-md">
+<div class="w-8 h-8 rounded-full border-2 border-rule-grey bg-white flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[18px]">mark_email_unread</span>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Awaiting</span>
+</div>
+<!-- Step 4: Completed -->
+<div class="flex flex-col items-center gap-xs bg-white px-md">
+<div class="w-8 h-8 rounded-full border-2 border-rule-grey bg-white flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Completed</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+<div class="space-y-md">
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Instruction Details</p>
+<h3 class="font-headline-md text-[20px] text-ink-navy">Python Data Visualization</h3>
+<p class="font-body-md text-on-surface-variant">Mentor: Elara Vance<br/>Date: Oct 24, 2023<br/>Time: 14:00 - 16:00</p>
+<div class="editorial-rule"></div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-verified-gold">verified_user</span>
+<p class="font-label-mono text-label-mono text-verified-gold">ESCROW PROTECTED SESSION</p>
+</div>
+</div>
+<div class="bg-surface-container p-lg rounded-lg border border-rule-grey space-y-md">
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Digital ID Authorization</p>
+<p class="font-body-md">Please present your CampusOS QR code at the Library Room 402 check-in terminal to initiate the session timer.</p>
+<button class="w-full bg-ink-navy text-on-primary py-sm rounded-lg font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary-container transition-colors">Generate Session Key</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Spacer -->
+<div class="h-24 md:h-32"></div>
+<!-- Session Detail View: ESCROW LIFECYCLE (State: COMPLETED) -->
+<section class="max-w-4xl mx-auto space-y-xl opacity-80 hover:opacity-100 transition-opacity">
+<div class="flex items-center gap-md mb-xl">
+<h2 class="font-headline-md text-headline-md text-on-surface-variant">Session Protocol 771-A</h2>
+<span class="ml-auto font-label-mono text-label-mono bg-surface-container-highest text-on-surface-variant px-md py-xs rounded uppercase">Status: Completed</span>
+</div>
+<div class="bg-white border border-rule-grey rounded-lg p-xl relative overflow-hidden grayscale-[0.5]">
+<div class="absolute top-0 left-0 w-1 h-full bg-success-sage"></div>
+<!-- Progress Bar (Full) -->
+<div class="relative flex justify-between items-center mb-xl">
+<div class="absolute top-1/2 left-0 w-full h-[2px] bg-success-sage -translate-y-1/2 -z-10"></div>
+<div class="flex flex-col items-center gap-xs bg-white px-md">
+<div class="w-8 h-8 rounded-full bg-success-sage flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Booked</span>
+</div>
+<div class="flex flex-col items-center gap-xs bg-white px-md">
+<div class="w-8 h-8 rounded-full bg-success-sage flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">In Progress</span>
+</div>
+<div class="flex flex-col items-center gap-xs bg-white px-md">
+<div class="w-8 h-8 rounded-full bg-success-sage flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase">Awaiting</span>
+</div>
+<div class="flex flex-col items-center gap-xs bg-white px-md">
+<div class="w-8 h-8 rounded-full bg-success-sage flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+<span class="font-label-caps text-[10px] text-success-sage uppercase font-bold">Completed</span>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center gap-lg">
+<div class="text-center md:text-left">
+<h3 class="font-headline-md text-[20px] text-ink-navy">Academic Writing Workshop</h3>
+<p class="font-body-md text-on-surface-variant">Closed on Oct 20, 2023</p>
+<p class="font-label-mono text-label-mono text-success-sage mt-xs">+2.0 Credits Transferred to Ledger</p>
+</div>
+<div class="flex gap-md">
+<button class="border border-rule-grey px-lg py-xs rounded-lg font-label-caps text-label-caps text-on-surface-variant hover:bg-surface-container transition-colors">Download Log</button>
+<button class="bg-surface-container px-lg py-xs rounded-lg font-label-caps text-label-caps text-ink-navy hover:bg-ink-navy hover:text-white transition-all">Submit Feedback</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- FAB for Create (Mobile Only) -->
+<button class="md:hidden fixed bottom-24 right-margin-mobile w-14 h-14 bg-ink-navy text-on-primary rounded-full shadow-lg flex items-center justify-center z-50">
+<span class="material-symbols-outlined">add</span>
+</button>
+<script>
+        // Simple Interaction logic
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.98)';
+                card.style.transition = 'transform 0.1s ease';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

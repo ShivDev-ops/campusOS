@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CampusOS | Home Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&amp;family=Source+Serif+4:wght@600;700&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #FAF7F0;
+            color: #1c1c18;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-rule {
+            border: 0;
+            border-top: 1px solid #D8D2C4;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#643f00",
+                    "on-primary-fixed": "#0f1b34",
+                    "secondary": "#845400",
+                    "primary": "#09152e",
+                    "on-secondary-fixed": "#2a1800",
+                    "primary-fixed": "#d9e2ff",
+                    "success-sage": "#5E7A63",
+                    "on-primary-container": "#8691b0",
+                    "background": "#fcf9f2",
+                    "on-secondary-container": "#744900",
+                    "ink-navy": "#1F2A44",
+                    "tertiary-fixed": "#fcdfab",
+                    "surface-container-high": "#ebe8e1",
+                    "surface": "#fcf9f2",
+                    "tertiary": "#1f1400",
+                    "primary-fixed-dim": "#bbc6e7",
+                    "secondary-fixed-dim": "#ffb958",
+                    "surface-bright": "#fcf9f2",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#382804",
+                    "outline-variant": "#c6c6ce",
+                    "surface-container-highest": "#e5e2db",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#261900",
+                    "surface-variant": "#e5e2db",
+                    "surface-dim": "#dcdad3",
+                    "inverse-surface": "#31312c",
+                    "surface-tint": "#535e7b",
+                    "surface-container": "#f0eee7",
+                    "on-tertiary-container": "#a78f61",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f6f3ec",
+                    "secondary-container": "#ffb958",
+                    "paper-bg": "#FAF7F0",
+                    "on-background": "#1c1c18",
+                    "on-tertiary-fixed-variant": "#57441d",
+                    "error-brick": "#B4482F",
+                    "tertiary-fixed-dim": "#dfc391",
+                    "on-surface-variant": "#45464d",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "verified-gold": "#C98A2C",
+                    "inverse-on-surface": "#f3f0ea",
+                    "on-surface": "#1c1c18",
+                    "rule-grey": "#D8D2C4",
+                    "inverse-primary": "#bbc6e7",
+                    "on-primary-fixed-variant": "#3b4662",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#ffddb6",
+                    "outline": "#76777e",
+                    "primary-container": "#1f2a44",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "gutter": "16px",
+                    "md": "16px",
+                    "base": "4px",
+                    "xs": "8px",
+                    "lg": "24px",
+                    "margin-desktop": "40px",
+                    "sm": "12px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "headline-md": ["\"Source Serif 4\""],
+                    "label-mono": ["IBM Plex Mono"],
+                    "label-caps": ["Public Sans"],
+                    "display-lg": ["\"Source Serif 4\""],
+                    "body-md": ["Public Sans"],
+                    "body-lg": ["Public Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-paper-bg min-h-screen">
+<!-- Sidebar (Desktop) -->
+<aside class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-paper-bg border-r border-rule-grey py-xl z-50">
+<div class="px-xl mb-xl">
+<h1 class="font-headline-md text-headline-md text-ink-navy">CampusOS</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mt-1">Verified Record</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center text-ink-navy border-l-4 border-verified-gold pl-4 bg-surface-container py-3 transition-all" href="#">
+<span class="material-symbols-outlined mr-3">home</span>
+<span class="font-label-caps text-label-caps">HOME</span>
+</a>
+<a class="flex items-center text-on-surface-variant pl-5 py-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined mr-3">account_balance</span>
+<span class="font-label-caps text-label-caps">LEDGER</span>
+</a>
+<a class="flex items-center text-on-surface-variant pl-5 py-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined mr-3">storefront</span>
+<span class="font-label-caps text-label-caps">MARKETPLACE</span>
+</a>
+<a class="flex items-center text-on-surface-variant pl-5 py-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined mr-3">swap_horiz</span>
+<span class="font-label-caps text-label-caps">BARTER</span>
+</a>
+<a class="flex items-center text-on-surface-variant pl-5 py-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined mr-3">person</span>
+<span class="font-label-caps text-label-caps">PROFILE</span>
+</a>
+</nav>
+<div class="px-xl mt-auto">
+<button class="w-full bg-ink-navy text-white py-3 rounded-lg font-label-caps text-label-caps hover:bg-primary transition-colors">
+                RECRUITMENT
+            </button>
+<div class="mt-xl pt-xl border-t border-rule-grey">
+<a class="flex items-center text-on-surface-variant pl-1 py-2 hover:text-ink-navy transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">admin_panel_settings</span>
+<span class="font-label-caps text-label-caps">ADMIN</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="md:ml-64 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full h-16 bg-surface border-b border-rule-grey flex justify-between items-center px-margin-mobile md:px-margin-desktop z-40">
+<div class="md:hidden font-headline-md text-headline-md text-ink-navy">CampusOS</div>
+<div class="hidden md:block"></div> <!-- Spacer for layout -->
+<div class="flex items-center gap-xl">
+<div class="hidden sm:flex items-center bg-surface-container border border-rule-grey px-3 py-1 rounded-lg">
+<span class="material-symbols-outlined text-outline mr-2 text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md w-48 lg:w-64" placeholder="Search records..." type="text"/>
+</div>
+<button class="relative text-ink-navy hover:text-verified-gold transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error-brick rounded-full border border-surface"></span>
+</button>
+<div class="w-8 h-8 rounded-full border border-rule-grey bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional close-up portrait of a university student with a confident expression, set against a blurred academic building background. The lighting is soft and natural, matching the warm editorial paper aesthetic of the UI. The composition is clean, centered, and reflects high academic integrity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOB-NUsansHxY3uKviz_rqAsuajpkQ-byyg45kbjAzRHi-EzDaOGYQM6WrkgLuoktsNJPJxYHAEiuC-SMyDrno5AUPFABhT01CfEhdZkgQkvIHKW4YjbzB2mP4Oqzl_2lD1AiqR6t6XPx4-EzNJg0IOQyDEblkZJwBRTlNtUFrfVmAjGNA_NcPVNAk2mDECvF7f67Q5kqEj6TRY8k-BwjNLKaU_cagSO1akGKHTwfleRLCTuGvKFt1aVfdiV7XymyOfPCCZ3pqius"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="p-margin-mobile md:p-margin-desktop space-y-xl max-w-[1200px] w-full mx-auto">
+<!-- Summary Strip -->
+<section class="bg-surface border border-rule-grey p-lg flex flex-col md:flex-row md:items-center justify-between gap-xl">
+<div class="flex items-center gap-lg">
+<div class="relative">
+<div class="w-16 h-16 rounded-full border-2 border-rule-grey bg-white flex items-center justify-center p-1">
+<img class="w-full h-full rounded-full object-cover" data-alt="Close-up of a student ID photo featuring a young adult male with a neat appearance. The background is a crisp off-white, and the photo has a slight grain texture similar to printed cardstock. The lighting is bright and even, reinforcing the official record and verified status of the platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-UX644ZFVp3lAk9a1CToB4hQZAgV_ZlIujIh9_OqZxQCJFYEfGsQ9p71vG2nqOqAjLbtJEkArj0P1LQb7yusTvJuaNJzeOeeYe2jKgn6yLQ9GPu4nN_ISO9rkPmU5s4vqHynkzUdC5yLbFVlltkPJnfdQiTdwFQkWBAXMmGWIoEp8q6P--Rl-2kC2-u3aXj3blLV0z3kyDWwkNomFCusSgHq243Q-fX-JwJUM7ZxwpRTB1QhJiyVc7YADrn4AZl_XI94KAndNxkI"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-verified-gold text-white p-0.5 rounded-full border-2 border-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-ink-navy leading-none">Julian Thorne</h2>
+<div class="flex items-center gap-xs mt-2">
+<span class="font-label-caps text-[10px] tracking-widest bg-ink-navy text-white px-2 py-0.5 rounded">CONTRIBUTOR</span>
+<span class="font-label-caps text-[10px] tracking-widest border border-rule-grey text-on-surface-variant px-2 py-0.5 rounded uppercase">Dean's List '24</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 md:flex gap-xl border-t md:border-t-0 md:border-l border-rule-grey pt-lg md:pt-0 md:pl-xl">
+<div class="space-y-1">
+<p class="font-label-caps text-label-caps text-on-surface-variant">REPUTATION SCORE</p>
+<p class="font-label-mono text-xl text-ink-navy">892.40</p>
+</div>
+<div class="space-y-1">
+<p class="font-label-caps text-label-caps text-on-surface-variant">LEDGER BALANCE</p>
+<p class="font-label-mono text-xl text-ink-navy">1,240 <span class="text-verified-gold">¤</span></p>
+</div>
+</div>
+</section>
+<!-- Upcoming Events Horizontal Scroll -->
+<section class="space-y-md">
+<div class="flex items-center justify-between">
+<h3 class="font-label-caps text-label-caps text-ink-navy">UPCOMING CALENDAR</h3>
+<a class="font-label-mono text-xs text-on-surface-variant underline hover:text-verified-gold" href="#">VIEW FULL SCHEDULE</a>
+</div>
+<div class="flex gap-md overflow-x-auto hide-scrollbar pb-2">
+<!-- Event Card 1 -->
+<div class="flex-shrink-0 w-64 bg-surface border border-rule-grey p-lg group cursor-pointer hover:border-verified-gold transition-colors">
+<div class="flex justify-between items-start mb-base">
+<span class="font-label-mono text-[11px] text-verified-gold">14:00 — 15:30</span>
+<span class="material-symbols-outlined text-outline group-hover:text-verified-gold transition-colors text-[18px]">event</span>
+</div>
+<h4 class="font-headline-md text-lg text-ink-navy leading-tight">Advanced Macro Theory</h4>
+<p class="font-body-md text-sm text-on-surface-variant mt-2">Lecture Hall C-12 • Dr. Aris</p>
+</div>
+<!-- Event Card 2 -->
+<div class="flex-shrink-0 w-64 bg-surface border border-rule-grey p-lg group cursor-pointer hover:border-verified-gold transition-colors">
+<div class="flex justify-between items-start mb-base">
+<span class="font-label-mono text-[11px] text-verified-gold">16:45 — 18:00</span>
+<span class="material-symbols-outlined text-outline group-hover:text-verified-gold transition-colors text-[18px]">groups</span>
+</div>
+<h4 class="font-headline-md text-lg text-ink-navy leading-tight">Senate Subcommittee</h4>
+<p class="font-body-md text-sm text-on-surface-variant mt-2">Executive Boardroom 02</p>
+</div>
+<!-- Event Card 3 -->
+<div class="flex-shrink-0 w-64 bg-surface border border-rule-grey p-lg group cursor-pointer hover:border-verified-gold transition-colors">
+<div class="flex justify-between items-start mb-base">
+<span class="font-label-mono text-[11px] text-verified-gold">TOMORROW</span>
+<span class="material-symbols-outlined text-outline group-hover:text-verified-gold transition-colors text-[18px]">bolt</span>
+</div>
+<h4 class="font-headline-md text-lg text-ink-navy leading-tight">Career Forge: Fintech</h4>
+<p class="font-body-md text-sm text-on-surface-variant mt-2">Innovation Hub • Workshop</p>
+</div>
+<!-- Event Card 4 -->
+<div class="flex-shrink-0 w-64 bg-surface border border-rule-grey p-lg group cursor-pointer hover:border-verified-gold transition-colors">
+<div class="flex justify-between items-start mb-base">
+<span class="font-label-mono text-[11px] text-verified-gold">THU 10:00</span>
+<span class="material-symbols-outlined text-outline group-hover:text-verified-gold transition-colors text-[18px]">school</span>
+</div>
+<h4 class="font-headline-md text-lg text-ink-navy leading-tight">Ethics in Al Seminar</h4>
+<p class="font-body-md text-sm text-on-surface-variant mt-2">Philosophy Hall • RM 401</p>
+</div>
+</div>
+</section>
+<!-- Bento Grid Content -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-xl">
+<!-- Skill Match Card (Large Left) -->
+<div class="lg:col-span-2 space-y-xl">
+<div class="bg-surface border border-rule-grey overflow-hidden flex flex-col md:flex-row h-full min-h-[320px]">
+<div class="md:w-1/2 p-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-md">
+<span class="material-symbols-outlined text-verified-gold text-[20px]">star_rate</span>
+<p class="font-label-caps text-label-caps text-verified-gold">SKILL MATCH RECRUITMENT</p>
+</div>
+<h3 class="font-display-lg text-headline-md text-ink-navy mb-md">Systems Architect Intern — Campus Labs</h3>
+<p class="font-body-md text-on-surface-variant mb-lg">Your proficiency in Decentralized Governance and Technical Writing matches 94% of this role's requirements. Verified status active.</p>
+</div>
+<div class="flex items-center gap-md">
+<button class="bg-ink-navy text-white px-lg py-2 rounded font-label-caps text-label-caps hover:bg-primary transition-colors">APPLY NOW</button>
+<button class="border border-rule-grey text-ink-navy px-lg py-2 rounded font-label-caps text-label-caps hover:bg-surface-container transition-colors">DETAILS</button>
+</div>
+</div>
+<div class="md:w-1/2 relative bg-surface-container border-l border-rule-grey hidden md:block">
+
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="p-lg bg-white/80 backdrop-blur-sm border border-rule-grey rounded-lg shadow-sm text-center">
+<p class="font-label-mono text-headline-md text-ink-navy">94%</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant">COMPATIBILITY</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Marketplace Picks (Horizontal in the middle) -->
+<div class="space-y-md">
+<h3 class="font-label-caps text-label-caps text-ink-navy">MARKETPLACE PICKS FOR YOU</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="bg-surface border border-rule-grey p-md flex gap-md group hover:bg-surface-container transition-colors cursor-pointer">
+<div class="w-20 h-20 bg-surface-container flex-shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A high-quality, minimalist photograph of a sleek mechanical keyboard with an industrial design aesthetic. The lighting is focused and clean, casting soft shadows on a desk made of light-colored wood. The overall style is refined and academic, fitting a high-end student marketplace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlvLtwXIB-uUCl0uF8AYJ5YvSKEW3ukuP7n57w_ZZkddgTjqo74WgXlfLRXkoxtIRnxDQYibVwTte68WXytyTdhn6bHmc9o5RSKO3OZ7iHBLUt9HVTZu1bZMFKrAcxX7V1sWoHzabW__blUpuB9dEax8YRR5rox142MCH06kQ7qkYdPGkOyA5RIFdLrTg5wnyJHLTFLcPDHwivYrhZy7BslrOsvv8RIdCZcJnLrBsWCCWKAo9l8GEyEApnVAHbAIzbAJsUhv4F5NQ"/>
+</div>
+<div class="flex flex-col justify-center">
+<h4 class="font-label-caps text-label-caps text-ink-navy">Mechanical Keyboard v2</h4>
+<p class="font-label-mono text-sm text-verified-gold mt-1">450 ¤</p>
+<p class="font-body-md text-xs text-on-surface-variant mt-1">Sold by @engineering_dept</p>
+</div>
+</div>
+<div class="bg-surface border border-rule-grey p-md flex gap-md group hover:bg-surface-container transition-colors cursor-pointer">
+<div class="w-20 h-20 bg-surface-container flex-shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A vintage-style film camera resting on top of a stack of academic books. The image has a soft, editorial feel with warm lighting and a slight paper-like texture. The colors are muted, focusing on earthy tones and the metallic sheen of the camera, perfectly suited for a curated university marketplace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnAvvhihUO2EFEwEkS7CRx7l0dGsPLXdZ_2LyJcjqeEqEGoo__goIo7NVzzzgmvvic9WnxohO-ydxCN2BboQpyhaVdXd42187fDEhZ57vWLhyrBCxesTPOZLElOlNF2LVCxE5T_wS1L3IM_pjwcz-m1NdHMvN05MU4MMkkCwUj9O4MiRSuO5ZRRfTwomH2OByJZPf2ltuGz_X7BaDGUSo_UsXR5-RrrX1F0MUUmjpkPlnWBbT0hTSJjBjsU-avVl-yGihZJ73R7Xk"/>
+</div>
+<div class="flex flex-col justify-center">
+<h4 class="font-label-caps text-label-caps text-ink-navy">Refurbished SLR Camera</h4>
+<p class="font-label-mono text-sm text-verified-gold mt-1">820 ¤</p>
+<p class="font-body-md text-xs text-on-surface-variant mt-1">Sold by @arts_media</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar Column -->
+<div class="space-y-xl">
+<!-- Department Chat Teaser -->
+<div class="bg-surface border border-rule-grey">
+<div class="p-md border-b border-rule-grey bg-surface-container flex items-center justify-between">
+<h3 class="font-label-caps text-label-caps text-ink-navy">ECONOMY DEPT. HUB</h3>
+<span class="w-2 h-2 bg-success-sage rounded-full"></span>
+</div>
+<div class="p-lg space-y-lg">
+<div class="flex gap-md">
+<div class="w-8 h-8 rounded-full bg-rule-grey flex-shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Small avatar photo of a professional-looking woman in her late 30s, likely a professor or department head. She is smiling warmly in an office setting filled with books. The photo has a soft, natural aesthetic consistent with the brand's verified paper style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPFKiVxO12cL2cFDbAROZdcSvXvq2F59ozIUWfGFiyGHlg1l8nSdQFma2BP_-REyb6e3KMs6Qah6kYddzdrxyDvhYprkja0Wl-wkzGP3fDi_-CaqD-GSm68UDkJNWTdevhnBLtz7ou8AxKU9qO0DXyDQA5ftnUtXTDx7RdBpYQ_C9-sWEDWosaYSTpjrf7bTJbXWtqNH1epVXsDQ4g3jqBlr2LHxfHVTlC6YebY0jVtLownCcgjLyy0BOMrNw4JN3-Ou5A2nVkW1E"/>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant">DR. ELARA VANCE</p>
+<div class="bg-surface-container-low p-md rounded-lg mt-1 border border-rule-grey">
+<p class="font-body-md text-sm text-on-surface italic">"The symposium records for fiscal theory have been released. Please review the ledger..."</p>
+</div>
+</div>
+</div>
+<div class="pt-md border-t border-rule-grey">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border border-surface bg-ink-navy"></div>
+<div class="w-6 h-6 rounded-full border border-surface bg-rule-grey"></div>
+<div class="w-6 h-6 rounded-full border border-surface bg-verified-gold"></div>
+<div class="pl-xl font-label-caps text-[10px] text-on-surface-variant self-center">12 OTHERS TYPING...</div>
+</div>
+<button class="w-full mt-lg text-ink-navy font-label-mono text-xs border border-ink-navy py-2 rounded hover:bg-ink-navy hover:text-white transition-all">OPEN DEPARTMENT FEED</button>
+</div>
+</div>
+</div>
+<!-- Top Rated Resource -->
+<div class="bg-surface border border-rule-grey p-lg space-y-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-verified-gold text-[20px]">verified</span>
+<h3 class="font-label-caps text-label-caps text-ink-navy">TOP RATED RESOURCE</h3>
+</div>
+<div class="relative group">
+<div class="aspect-[4/3] bg-surface-container overflow-hidden border border-rule-grey">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A clean, minimalist 3D rendering of an open digital book with glowing annotations. The scene is lit with soft blue and gold light against a neutral paper-white background. The visual style is high-end editorial and suggests deep academic research and verified knowledge. No text is present in the image." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ9lyI5s0ylMyygrjVpEOq6S25czqk9fKZnBWH_ksNdYyyCFUEe47HtED9zq-rQdAelU3MKoNCmlVnWa7RS0PpVwhRgYUJyeTkyLaSZzJCVjo8gSAhGallMWRNB_NeDIyzYhV1cYFdcHocglmzUihp8EluwSqVi0qTrMNWB9gYhE77hqSZMSCh4Ky-GC_3ZU6dUr2tiI2G2v5yZ293mHi6NS7XymWRvG_c3wb0rEtzNzeEfprCh258OfJuJSk5_LRCQiYsMtctdZg"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-ink-navy/60 to-transparent flex items-end p-md opacity-0 group-hover:opacity-100 transition-opacity">
+<p class="text-white font-label-mono text-xs">9.8 Avg Rating</p>
+</div>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline-md text-lg text-ink-navy leading-tight">Decentralized Trust Protocols</h4>
+<p class="font-body-md text-sm text-on-surface-variant">A comprehensive guide for the 2024 academic year. Verified by the Institute of Standards.</p>
+</div>
+<div class="pt-md flex items-center justify-between border-t border-rule-grey">
+<span class="font-label-mono text-xs text-on-surface-variant">1,402 ACCESSES</span>
+<span class="material-symbols-outlined text-ink-navy cursor-pointer hover:text-verified-gold">download</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer / BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-paper-bg border-t border-rule-grey flex justify-around items-center px-4 h-16 shadow-lg">
+<a class="flex flex-col items-center justify-center text-ink-navy border-t-2 border-verified-gold pt-2 transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-[10px] mt-1">HOME</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant pt-2" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-label-caps text-[10px] mt-1">LEDGER</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant pt-2" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-caps text-[10px] mt-1">MARKET</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant pt-2" href="#">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span class="font-label-caps text-[10px] mt-1">BARTER</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant pt-2" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-[10px] mt-1">PROFILE</span>
+</a>
+</nav>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        // Subtle hover interaction for summary strip
+        document.addEventListener('DOMContentLoaded', () => {
+            const summaryStrip = document.querySelector('section.bg-surface');
+            if (summaryStrip) {
+                summaryStrip.addEventListener('mouseenter', () => {
+                    summaryStrip.classList.add('border-verified-gold');
+                    summaryStrip.style.transition = 'border-color 0.3s ease';
+                });
+                summaryStrip.addEventListener('mouseleave', () => {
+                    summaryStrip.classList.remove('border-verified-gold');
+                });
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CampusOS | Create Account</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&amp;family=Public+Sans:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#643f00",
+                    "on-primary-fixed": "#0f1b34",
+                    "secondary": "#845400",
+                    "primary": "#09152e",
+                    "on-secondary-fixed": "#2a1800",
+                    "primary-fixed": "#d9e2ff",
+                    "success-sage": "#5E7A63",
+                    "on-primary-container": "#8691b0",
+                    "background": "#fcf9f2",
+                    "on-secondary-container": "#744900",
+                    "ink-navy": "#1F2A44",
+                    "tertiary-fixed": "#fcdfab",
+                    "surface-container-high": "#ebe8e1",
+                    "surface": "#fcf9f2",
+                    "tertiary": "#1f1400",
+                    "primary-fixed-dim": "#bbc6e7",
+                    "secondary-fixed-dim": "#ffb958",
+                    "surface-bright": "#fcf9f2",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#382804",
+                    "outline-variant": "#c6c6ce",
+                    "surface-container-highest": "#e5e2db",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#261900",
+                    "surface-variant": "#e5e2db",
+                    "surface-dim": "#dcdad3",
+                    "inverse-surface": "#31312c",
+                    "surface-tint": "#535e7b",
+                    "surface-container": "#f0eee7",
+                    "on-tertiary-container": "#a78f61",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f6f3ec",
+                    "secondary-container": "#ffb958",
+                    "paper-bg": "#FAF7F0",
+                    "on-background": "#1c1c18",
+                    "on-tertiary-fixed-variant": "#57441d",
+                    "error-brick": "#B4482F",
+                    "tertiary-fixed-dim": "#dfc391",
+                    "on-surface-variant": "#45464d",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "verified-gold": "#C98A2C",
+                    "inverse-on-surface": "#f3f0ea",
+                    "on-surface": "#1c1c18",
+                    "rule-grey": "#D8D2C4",
+                    "inverse-primary": "#bbc6e7",
+                    "on-primary-fixed-variant": "#3b4662",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#ffddb6",
+                    "outline": "#76777e",
+                    "primary-container": "#1f2a44",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "gutter": "16px",
+                    "md": "16px",
+                    "base": "4px",
+                    "xs": "8px",
+                    "lg": "24px",
+                    "margin-desktop": "40px",
+                    "sm": "12px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "headline-md": ["\"Source Serif 4\""],
+                    "label-mono": ["IBM Plex Mono"],
+                    "label-caps": ["Public Sans"],
+                    "display-lg-mobile": ["\"Source Serif 4\""],
+                    "display-lg": ["\"Source Serif 4\""],
+                    "body-md": ["Public Sans"],
+                    "body-lg": ["Public Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .verified-stamp-seal {
+            background: radial-gradient(circle at center, transparent 65%, rgba(201, 138, 44, 0.1) 100%);
+        }
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%231F2A44'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+        }
+    </style>
+</head>
+<body class="bg-paper-bg font-body-md text-on-surface min-h-screen flex flex-col items-center justify-center p-margin-mobile">
+<!-- Background Atmospheric Effect -->
+<div class="fixed inset-0 pointer-events-none opacity-20 overflow-hidden">
+<div class="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full border border-rule-grey"></div>
+<div class="absolute bottom-[-5%] left-[-5%] w-[300px] h-[300px] rounded-full border border-rule-grey"></div>
+</div>
+<!-- Main Content Container (Centered Card) -->
+<main class="relative z-10 w-full max-w-[420px]">
+<!-- Brand Header (TopAppBar Contextual Logic: Suppressed, using logo only) -->
+<div class="text-center mb-xl">
+<h1 class="font-headline-md text-headline-md text-ink-navy flex items-center justify-center gap-xs">
+                CampusOS
+                <span class="material-symbols-outlined text-verified-gold" style="font-variation-settings: 'FILL' 1;">verified</span>
+</h1>
+</div>
+<!-- The "Verified Paper" Sign Up Card -->
+<div class="bg-surface-container-lowest border border-rule-grey rounded-lg p-lg shadow-none">
+<!-- Header Section -->
+<div class="mb-lg border-b border-rule-grey pb-md">
+<h2 class="font-headline-md text-headline-md text-ink-navy">Create your account</h2>
+<p class="font-body-md text-on-surface-variant mt-xs">Only college email addresses are accepted</p>
+</div>
+<!-- Sign Up Form -->
+<form action="#" class="space-y-md">
+<!-- Full Name -->
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant block">FULL NAME</label>
+<input class="w-full h-12 px-md border border-rule-grey rounded-lg focus:ring-0 focus:border-ink-navy outline-none bg-surface-container-low transition-all placeholder:text-outline" placeholder="e.g. Rahul Sharma" type="text"/>
+</div>
+<!-- Institutional Email (ERROR STATE SIMULATION) -->
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant block">INSTITUTIONAL EMAIL</label>
+<div class="relative">
+<input class="w-full h-12 px-md border-2 border-error-brick rounded-lg focus:ring-0 focus:border-error-brick outline-none bg-surface-container-low transition-all" type="email" value="rahul.sharma@gmail.com"/>
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 text-error-brick">error</span>
+</div>
+<p class="font-label-mono text-[11px] text-error-brick flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">info</span>
+                        Personal emails are not permitted. Hint: "@yourcollege.edu.in"
+                    </p>
+</div>
+<!-- Row: Department & Year -->
+<div class="grid grid-cols-2 gap-md">
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant block">DEPARTMENT</label>
+<select class="w-full h-12 px-md border border-rule-grey rounded-lg focus:ring-0 focus:border-ink-navy outline-none bg-surface-container-low transition-all">
+<option disabled="" selected="">Select</option>
+<option>Comp. Science</option>
+<option>Engineering</option>
+<option>Economics</option>
+<option>Medicine</option>
+</select>
+</div>
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant block">YEAR</label>
+<select class="w-full h-12 px-md border border-rule-grey rounded-lg focus:ring-0 focus:border-ink-navy outline-none bg-surface-container-low transition-all">
+<option disabled="" selected="">Select</option>
+<option>1st Year</option>
+<option>2nd Year</option>
+<option>3rd Year</option>
+<option>4th Year</option>
+</select>
+</div>
+</div>
+<!-- Password Fields -->
+<div class="space-y-md pt-xs">
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant block">PASSWORD</label>
+<input class="w-full h-12 px-md border border-rule-grey rounded-lg focus:ring-0 focus:border-ink-navy outline-none bg-surface-container-low transition-all placeholder:text-outline" placeholder="••••••••" type="password"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant block">CONFIRM PASSWORD</label>
+<input class="w-full h-12 px-md border border-rule-grey rounded-lg focus:ring-0 focus:border-ink-navy outline-none bg-surface-container-low transition-all placeholder:text-outline" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<!-- Primary CTA -->
+<button class="w-full h-12 bg-ink-navy text-white rounded-lg font-label-caps text-label-caps flex items-center justify-center gap-xs hover:bg-primary-container active:scale-95 transition-all mt-lg" type="submit">
+                    VERIFY MY EMAIL
+                    <span class="material-symbols-outlined text-[18px]">verified_user</span>
+</button>
+</form>
+<!-- Secondary Footer Logic -->
+<div class="mt-xl text-center">
+<p class="font-body-md text-on-surface-variant">
+                    Already have an account? 
+                    <a class="text-ink-navy font-bold underline decoration-rule-grey underline-offset-4 hover:decoration-ink-navy transition-all" href="#">Login</a>
+</p>
+</div>
+</div>
+<!-- Bottom Footer Meta -->
+<footer class="mt-lg text-center">
+<div class="flex items-center justify-center gap-xs mb-xs">
+<div class="h-[1px] w-8 bg-rule-grey"></div>
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">Official Ledger System</span>
+<div class="h-[1px] w-8 bg-rule-grey"></div>
+</div>
+<p class="font-label-mono text-[10px] text-outline px-xl">
+                By signing up, you agree to the Institutional Data Residency and Campus Verification Protocols.
+            </p>
+</footer>
+</main>
+<!-- Visual Polish: Floating "Verified Paper" Elements -->
+<div class="fixed top-xl right-xl pointer-events-none hidden md:block">
+<div class="w-32 h-32 rounded-full border border-dashed border-rule-grey flex items-center justify-center verified-stamp-seal rotate-12">
+<span class="font-label-caps text-label-caps text-rule-grey text-center leading-none">OFFICIAL<br/>STAMP<br/>CampusOS</span>
+</div>
+</div>
+<script>
+        // Micro-interaction for field highlighting
+        document.querySelectorAll('input, select').forEach(element => {
+            element.addEventListener('focus', () => {
+                element.parentElement.querySelector('label').style.color = 'var(--ink-navy)';
+            });
+            element.addEventListener('blur', () => {
+                element.parentElement.querySelector('label').style.color = '';
+            });
+        });
+    </script>
+</body></html>

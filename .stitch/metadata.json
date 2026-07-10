@@ -1,0 +1,118 @@
+{
+  "projectId": "9388015906974149854",
+  "projectTitle": "CampusOS: Verified Paper Design System",
+  "screens": [
+    {
+      "screenId": "82dfaae7b7f14d799c7db10281f1af71",
+      "title": "4.6 & 4.7 Resource Library & Detail",
+      "htmlPath": ".stitch/designs/4.6 & 4.7 Resource Library & Detail.html",
+      "screenshotPath": ".stitch/designs/4.6 & 4.7 Resource Library & Detail.png",
+      "deviceType": "DESKTOP"
+    },
+    {
+      "screenId": "e4de3a9328994816bb8db95b26992f5a",
+      "title": "1.1 Landing Page",
+      "htmlPath": ".stitch/designs/1.1 Landing Page.html",
+      "screenshotPath": ".stitch/designs/1.1 Landing Page.png",
+      "deviceType": "DESKTOP"
+    },
+    {
+      "screenId": "dd1c366e9e0347fcbe4806fa851715f5",
+      "title": "4.4 & 4.5 Communities & Chat Thread",
+      "htmlPath": ".stitch/designs/4.4 & 4.5 Communities & Chat Thread.html",
+      "screenshotPath": ".stitch/designs/4.4 & 4.5 Communities & Chat Thread.png",
+      "deviceType": "DESKTOP"
+    },
+    {
+      "screenId": "be427d569fb14ef7be6f879467bb4fe8",
+      "title": "5.5 & 5.7 Lost & Found & Wanted Setup",
+      "htmlPath": ".stitch/designs/5.5 & 5.7 Lost & Found & Wanted Setup.html",
+      "screenshotPath": ".stitch/designs/5.5 & 5.7 Lost & Found & Wanted Setup.png",
+      "deviceType": "DESKTOP"
+    },
+    {
+      "screenId": "c23963f43ac84096ba955509767c4b81",
+      "title": "1.1 Landing Page",
+      "htmlPath": ".stitch/designs/1.1 Landing Page.html",
+      "screenshotPath": null,
+      "deviceType": "DESKTOP"
+    },
+    {
+      "screenId": "540cfaf96de04c47855414840761ffca",
+      "title": "7.1 & 7.2 Recruitment Browse & Detail",
+      "htmlPath": ".stitch/designs/7.1 & 7.2 Recruitment Browse & Detail.html",
+      "screenshotPath": ".stitch/designs/7.1 & 7.2 Recruitment Browse & Detail.png",
+      "deviceType": "DESKTOP"
+    },
+    {
+      "screenId": "99f4c725e8334d3f9549b2a4011dde32",
+      "title": "2.2 & 2.3 Onboarding: Trust & Consent",
+      "htmlPath": ".stitch/designs/2.2 & 2.3 Onboarding - Trust & Consent.html",
+      "screenshotPath": ".stitch/designs/2.2 & 2.3 Onboarding - Trust & Consent.png",
+      "deviceType": "DESKTOP"
+    },
+    {
+      "screenId": "df544eca72004ea7a66b38facfdf214e",
+      "title": "3.1 Home Dashboard",
+      "htmlPath": ".stitch/designs/3.1 Home Dashboard.html",
+      "screenshotPath": ".stitch/designs/3.1 Home Dashboard.png",
+      "deviceType": "DESKTOP"
+    },
+    {
+      "screenId": "96864737d56343d39843c8d2d836b158",
+      "title": "5.1 & 5.2 Marketplace & Listing Detail",
+      "htmlPath": ".stitch/designs/5.1 & 5.2 Marketplace & Listing Detail.html",
+      "screenshotPath": ".stitch/designs/5.1 & 5.2 Marketplace & Listing Detail.png",
+      "deviceType": "DESKTOP"
+    },
+    {
+      "screenId": "1756fda0d51f4054a4b0b67dbd53dbe0",
+      "title": "1.3 & 1.4 Auth Flow",
+      "htmlPath": ".stitch/designs/1.3 & 1.4 Auth Flow.html",
+      "screenshotPath": ".stitch/designs/1.3 & 1.4 Auth Flow.png",
+      "deviceType": "DESKTOP"
+    },
+    {
+      "screenId": "313d69d13d4d4f3bbcd607841d8f066b",
+      "title": "6.1 & 6.4 Skill Barter & Escrow Lifecycle",
+      "htmlPath": ".stitch/designs/6.1 & 6.4 Skill Barter & Escrow Lifecycle.html",
+      "screenshotPath": ".stitch/designs/6.1 & 6.4 Skill Barter & Escrow Lifecycle.png",
+      "deviceType": "DESKTOP"
+    },
+    {
+      "screenId": "ae02e8d093f54e93a801611b88637acd",
+      "title": "3.2 & 3.3 Search & Notifications",
+      "htmlPath": ".stitch/designs/3.2 & 3.3 Search & Notifications.html",
+      "screenshotPath": ".stitch/designs/3.2 & 3.3 Search & Notifications.png",
+      "deviceType": "DESKTOP"
+    },
+    {
+      "screenId": "c35d1157fa5e42899b7932273af847aa",
+      "title": "1.2 Sign Up & Errors",
+      "htmlPath": ".stitch/designs/1.2 Sign Up & Errors.html",
+      "screenshotPath": ".stitch/designs/1.2 Sign Up & Errors.png",
+      "deviceType": "DESKTOP"
+    },
+    {
+      "screenId": "03461b2bfb014cf9a96f5c5c7f553b95",
+      "title": "8.1 & 8.3 Admin Dashboard & Reports Queue",
+      "htmlPath": ".stitch/designs/8.1 & 8.3 Admin Dashboard & Reports Queue.html",
+      "screenshotPath": ".stitch/designs/8.1 & 8.3 Admin Dashboard & Reports Queue.png",
+      "deviceType": "DESKTOP"
+    },
+    {
+      "screenId": "2ab860bc836043f298683341dae5b821",
+      "title": "4.1 & 4.2 Academic Calendar & Event Detail",
+      "htmlPath": ".stitch/designs/4.1 & 4.2 Academic Calendar & Event Detail.html",
+      "screenshotPath": ".stitch/designs/4.1 & 4.2 Academic Calendar & Event Detail.png",
+      "deviceType": "DESKTOP"
+    },
+    {
+      "screenId": "bf9cc685ba3948a18d5592a8f1c7ecc9",
+      "title": "2.1 Onboarding: Profile Setup",
+      "htmlPath": ".stitch/designs/2.1 Onboarding - Profile Setup.html",
+      "screenshotPath": ".stitch/designs/2.1 Onboarding - Profile Setup.png",
+      "deviceType": "DESKTOP"
+    }
+  ]
+}

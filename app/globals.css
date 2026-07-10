@@ -1,26 +1,40 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --font-headline: var(--font-source-serif), serif;
+  --font-sans: var(--font-public-sans), sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), monospace;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-ink-navy: #18181A;
+  --color-paper-bg: #F6F6F4;
+  --color-verified-gold: #B3985E;
+  --color-success-sage: #5E7360;
+  --color-error-brick: #C84B31;
+  --color-rule-grey: #E4E4E2;
+  
+  --radius-DEFAULT: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-xxl: 1rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #F6F6F4;
+  color: #18181A;
+  font-family: var(--font-public-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Material Icons configuration */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Custom layout scrollbar hider */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

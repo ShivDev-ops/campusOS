@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CampusOS | Communities</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500&amp;family=Source+Serif+4:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f6f3ec",
+                        "inverse-primary": "#bbc6e7",
+                        "on-surface": "#1c1c18",
+                        "on-background": "#1c1c18",
+                        "on-primary-container": "#8691b0",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e5e2db",
+                        "surface-variant": "#e5e2db",
+                        "on-secondary-fixed-variant": "#643f00",
+                        "error-container": "#ffdad6",
+                        "background": "#fcf9f2",
+                        "outline": "#76777e",
+                        "surface-container": "#f0eee7",
+                        "on-tertiary-fixed-variant": "#57441d",
+                        "secondary-container": "#ffb958",
+                        "tertiary-fixed-dim": "#dfc391",
+                        "surface-container-high": "#ebe8e1",
+                        "paper-bg": "#FAF7F0",
+                        "tertiary": "#1f1400",
+                        "surface-bright": "#fcf9f2",
+                        "on-tertiary-container": "#a78f61",
+                        "inverse-on-surface": "#f3f0ea",
+                        "ink-navy": "#1F2A44",
+                        "outline-variant": "#c6c6ce",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#744900",
+                        "inverse-surface": "#31312c",
+                        "error-brick": "#B4482F",
+                        "primary-fixed": "#d9e2ff",
+                        "surface": "#fcf9f2",
+                        "on-tertiary-fixed": "#261900",
+                        "secondary": "#845400",
+                        "on-error": "#ffffff",
+                        "success-sage": "#5E7A63",
+                        "secondary-fixed-dim": "#ffb958",
+                        "on-primary-fixed-variant": "#3b4662",
+                        "tertiary-container": "#382804",
+                        "verified-gold": "#C98A2C",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dcdad3",
+                        "on-surface-variant": "#45464d",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#ffddb6",
+                        "rule-grey": "#D8D2C4",
+                        "primary": "#09152e",
+                        "on-primary-fixed": "#0f1b34",
+                        "on-secondary-fixed": "#2a1800",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#535e7b",
+                        "tertiary-fixed": "#fcdfab",
+                        "primary-container": "#1f2a44",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#bbc6e7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "sm": "12px",
+                        "xs": "8px",
+                        "xl": "32px",
+                        "gutter": "16px",
+                        "margin-desktop": "40px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Public Sans"],
+                        "label-mono": ["IBM Plex Mono"],
+                        "display-lg-mobile": ["\"Source Serif 4\""],
+                        "label-caps": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "display-lg": ["\"Source Serif 4\""],
+                        "headline-md": ["\"Source Serif 4\""]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .message-bubble-in {
+            border-bottom-left-radius: 4px;
+        }
+        .message-bubble-out {
+            border-bottom-right-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #FAF7F0;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #D8D2C4;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-paper-bg text-on-surface font-body-md min-h-screen">
+<!-- Sidebar Navigation (JSON Component Mapping) -->
+<aside class="h-full w-64 fixed left-0 top-0 border-r border-rule-grey bg-paper-bg flex flex-col py-xl px-md hidden md:flex z-50">
+<div class="mb-xl">
+<h1 class="font-headline-md text-headline-md font-bold text-ink-navy">CampusOS</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant opacity-70">Verified Student</p>
+</div>
+<nav class="flex-1 space-y-base">
+<a class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-body-md">Ledger</span>
+</a>
+<a class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-body-md">Marketplace</span>
+</a>
+<!-- Active: Communities/Marketplace logic mapped to Barter/Chat context -->
+<a class="flex items-center gap-md p-sm text-ink-navy font-bold border-r-4 border-verified-gold bg-surface-container-high" href="#">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span class="font-body-md">Barter</span>
+</a>
+<a class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-body-md">Recruitment</span>
+</a>
+<a class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="font-body-md">Moderation</span>
+</a>
+<a class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-body-md">Profile</span>
+</a>
+</nav>
+<div class="border-t border-rule-grey pt-md space-y-base">
+<a class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md">Settings</span>
+</a>
+<button class="w-full mt-md bg-ink-navy text-on-primary py-sm rounded-lg font-label-mono uppercase tracking-widest text-[12px]">
+                Digital ID
+            </button>
+</div>
+</aside>
+<!-- Top App Bar (JSON Component Mapping) -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-16 md:ml-64 md:max-w-[calc(100%-16rem)] sticky top-0 bg-paper-bg z-40 border-b border-rule-grey">
+<div class="flex items-center gap-md">
+<button class="md:hidden p-xs">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="pl-10 pr-md py-xs bg-surface-container-low border border-rule-grey rounded-lg text-body-md w-64 focus:outline-none focus:border-ink-navy transition-all" placeholder="Search Channels..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-ink-navy cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-ink-navy cursor-pointer">verified_user</span>
+</div>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-rule-grey">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a college student with a neutral expression, set against a clean studio background with soft architectural lighting that emphasizes a modern, academic editorial aesthetic. The lighting is warm and high-key, complementing the creamy paper-white background and navy accents of the UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXfmXY8nrDQJQzLuw6y0N1G3ZJLxj7B2J_CtlT7llvgNZ06mjPVktU8F5z3nOojgCTOmfDxJbpdz46O9ZPGUUVv2cRy4DUSh9iQaYaCnC2CmDZ8NGEtJpjhIf5RoUy1Ocel_zenlj6Yf7yFXcqRRhDwaIk0IWKnS61ZS1TJKaqBtORTeEh0ax-MzB1p31RsnosW9iTiD24x5YJU3LxCCEo36zeXckUSd2q2u4aTX5wpAh3oUFhYUKChj97s-zVg7NfegjKzT9A2qQ"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 min-h-[calc(100vh-64px)] flex flex-col md:flex-row overflow-hidden">
+<!-- 4.4 Channel List (Desktop Column) -->
+<section class="w-full md:w-80 border-r border-rule-grey bg-paper-bg flex flex-col">
+<div class="p-md border-b border-rule-grey flex justify-between items-center bg-surface-container-low/50">
+<span class="font-label-caps text-label-caps text-ink-navy">Channels</span>
+<span class="material-symbols-outlined text-sm cursor-pointer">add_circle</span>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar">
+<!-- Department Group -->
+<div class="py-sm">
+<button class="w-full text-left px-md py-xs flex items-center justify-between group">
+<span class="font-label-caps text-[10px] text-outline uppercase tracking-tighter">Academic Departments</span>
+<span class="material-symbols-outlined text-xs text-outline group-hover:text-ink-navy">expand_more</span>
+</button>
+<!-- Channel Item: Active -->
+<div class="px-sm py-xs">
+<div class="flex items-center gap-sm p-sm bg-surface-container-high rounded-lg cursor-pointer">
+<div class="h-10 w-10 bg-ink-navy rounded flex items-center justify-center text-white font-label-mono">CS</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center">
+<h4 class="font-body-md font-bold text-ink-navy truncate">Comp-Sci Hub</h4>
+<span class="text-[10px] font-label-mono text-outline">12:45</span>
+</div>
+<p class="text-xs text-on-surface-variant truncate">Alex: The algorithm workshop starts at...</p>
+</div>
+</div>
+</div>
+<!-- Channel Item with Unread -->
+<div class="px-sm py-xs">
+<div class="flex items-center gap-sm p-sm hover:bg-surface-container-low rounded-lg cursor-pointer group">
+<div class="h-10 w-10 bg-rule-grey rounded flex items-center justify-center text-ink-navy font-label-mono">EC</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center">
+<h4 class="font-body-md font-medium text-on-surface truncate">Economics Research</h4>
+<span class="bg-verified-gold text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">3</span>
+</div>
+<p class="text-xs text-on-surface-variant truncate font-bold text-ink-navy">Dr. Miller: Final grades are posted.</p>
+</div>
+</div>
+</div>
+<div class="px-sm py-xs">
+<div class="flex items-center gap-sm p-sm hover:bg-surface-container-low rounded-lg cursor-pointer group">
+<div class="h-10 w-10 bg-rule-grey rounded flex items-center justify-center text-ink-navy font-label-mono">FA</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center">
+<h4 class="font-body-md font-medium text-on-surface truncate">Fine Arts Studio</h4>
+<span class="text-[10px] font-label-mono text-outline">Yesterday</span>
+</div>
+<p class="text-xs text-on-surface-variant truncate">Sarah sent an image.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Topic Group -->
+<div class="py-sm border-t border-rule-grey">
+<button class="w-full text-left px-md py-xs flex items-center justify-between group">
+<span class="font-label-caps text-[10px] text-outline uppercase tracking-tighter">Student Life</span>
+<span class="material-symbols-outlined text-xs text-outline group-hover:text-ink-navy">expand_more</span>
+</button>
+<div class="px-sm py-xs">
+<div class="flex items-center gap-sm p-sm hover:bg-surface-container-low rounded-lg cursor-pointer">
+<div class="h-10 w-10 border border-rule-grey rounded flex items-center justify-center text-ink-navy">
+<span class="material-symbols-outlined">sports_basketball</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center">
+<h4 class="font-body-md font-medium text-on-surface truncate">Intramurals</h4>
+<span class="bg-verified-gold text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">12</span>
+</div>
+<p class="text-xs text-on-surface-variant truncate">Game moved to 7 PM today.</p>
+</div>
+</div>
+</div>
+<div class="px-sm py-xs">
+<div class="flex items-center gap-sm p-sm hover:bg-surface-container-low rounded-lg cursor-pointer">
+<div class="h-10 w-10 border border-rule-grey rounded flex items-center justify-center text-ink-navy">
+<span class="material-symbols-outlined">fastfood</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center">
+<h4 class="font-body-md font-medium text-on-surface truncate">Dining Hall Reviews</h4>
+<span class="text-[10px] font-label-mono text-outline">2h</span>
+</div>
+<p class="text-xs text-on-surface-variant truncate">Taco Tuesday was a success!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4.5 Chat Thread -->
+<section class="flex-1 flex flex-col h-[calc(100vh-64px)] bg-white relative">
+<!-- Thread Header -->
+<div class="px-lg h-16 border-b border-rule-grey flex items-center justify-between bg-white z-10">
+<div class="flex items-center gap-md">
+<div class="h-10 w-10 bg-ink-navy rounded flex items-center justify-center text-white font-label-mono">CS</div>
+<div>
+<h2 class="font-headline-md text-lg leading-tight text-ink-navy">Comp-Sci Hub</h2>
+<p class="text-[10px] font-label-mono text-success-sage flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-success-sage rounded-full"></span> 142 Students Online
+                        </p>
+</div>
+</div>
+<div class="flex gap-md">
+<button class="p-xs hover:bg-surface-container rounded-lg transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+</button>
+<button class="p-xs hover:bg-surface-container rounded-lg transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">group</span>
+</button>
+<button class="p-xs hover:bg-surface-container rounded-lg transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Chat Messages Area -->
+<div class="flex-1 overflow-y-auto p-lg space-y-xl custom-scrollbar bg-paper-bg/30">
+<!-- Date Separator -->
+<div class="flex items-center gap-md py-md">
+<div class="flex-1 h-px bg-rule-grey"></div>
+<span class="font-label-caps text-[10px] text-outline uppercase tracking-[0.2em]">Today, October 24</span>
+<div class="flex-1 h-px bg-rule-grey"></div>
+</div>
+<!-- Incoming Message -->
+<div class="flex gap-md group">
+<div class="h-10 w-10 shrink-0 rounded-lg overflow-hidden border border-rule-grey">
+<img class="w-full h-full object-cover" data-alt="A digital portrait of a university student with a creative and modern look, wearing minimal spectacles, set against a clean, warm-toned studio background that feels professional yet accessible. The image uses soft, directional lighting and a palette of muted earth tones and deep blues to maintain UI consistency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNLd1aHABicbiYPC2jfAyezPNeD2MRN-YnX94YnpRgo3PyE9NyDGBn_NO0xP6o74GBY54HHV6B5YqIvVkyHcLWuY13Pdinxpsb2iLp8zZALhBEH5ySZB-d4op6sbnP7SftGB2JClUufM9pePjpuV6UqB9gihFKpBtrJ1FAh51uPkiZ95W82K0vtEb4hNrERNDA4-Hu995tygHdcR105Z5qXB4i-8IYXNL_V0fCfTm0s3lHyfhTyEJ88aV35P4bbosMytrHPghw5G0"/>
+</div>
+<div class="max-w-[75%] space-y-xs">
+<div class="flex items-center gap-xs">
+<span class="font-label-caps text-[11px] font-bold text-ink-navy">Alex Rivera</span>
+<!-- Verified Stamp -->
+<span class="material-symbols-outlined text-[14px] text-verified-gold" style="font-variation-settings: 'FILL' 1;">verified</span>
+<!-- Tier Tag -->
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest border border-rule-grey text-[9px] font-label-mono uppercase text-on-surface-variant">Graduate</span>
+<span class="text-[10px] font-label-mono text-outline ml-base">12:45 PM</span>
+</div>
+<div class="bg-white border border-rule-grey p-md rounded-xl message-bubble-in shadow-sm">
+<p class="text-body-md text-on-surface leading-relaxed">Does anyone have the notes from Dr. Aris's lecture on Quantum Algorithms? I missed the first ten minutes because of the bus delay. 🚌</p>
+</div>
+</div>
+</div>
+<!-- Outgoing Message -->
+<div class="flex flex-row-reverse gap-md group">
+<div class="h-10 w-10 shrink-0 rounded-lg overflow-hidden border border-ink-navy/20">
+<img class="w-full h-full object-cover" data-alt="A sharp, minimalist profile photo of a modern student, focusing on high-contrast lighting and a sophisticated paper-like aesthetic. The subject is well-lit with soft shadows, wearing professional attire in deep navy, set against a background that echoes the creamy off-white of the CampusOS design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoqSwORb-Da34awwoMB4SUdPvKK8kIarieamHr87LWH36BWqiEAXcRzFfT8fiotfkQ7Is0mGKS4YsNttUfYXc1erb2L6peK34KmDdtqoSca63OeOPx5DOTge7qrUvv5Uw7O-WSrnzIThEcoblrT5GKbl7ofC38hKLCHgV95nxsXi2CG5XCMy0PzhGL-esenrUutgMjBDje6lE_PmQY33rbqPGY5H05UZQjx816vXxKdz4TOQk1NJyo16y_7-kRmXYPflEQ6-6a67g"/>
+</div>
+<div class="max-w-[75%] space-y-xs flex flex-col items-end">
+<div class="flex items-center gap-xs flex-row-reverse">
+<span class="font-label-caps text-[11px] font-bold text-ink-navy">You</span>
+<span class="text-[10px] font-label-mono text-outline mr-base">12:48 PM</span>
+</div>
+<div class="bg-ink-navy text-white p-md rounded-xl message-bubble-out shadow-sm">
+<p class="text-body-md leading-relaxed">I've got you covered! Just uploaded the PDF to the shared ledger. It's under "Week 8 - Lecture 1".</p>
+</div>
+<div class="flex items-center gap-xs mt-base opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-xs text-success-sage">done_all</span>
+<span class="text-[9px] font-label-mono text-success-sage">Read</span>
+</div>
+</div>
+</div>
+<!-- Incoming Message with Attachment -->
+<div class="flex gap-md group">
+<div class="h-10 w-10 shrink-0 rounded-lg overflow-hidden border border-rule-grey">
+<img class="w-full h-full object-cover" data-alt="A portrait of a female university student in an academic setting, looking focused and intelligent. The lighting is natural and bright, with a palette of whites, creams, and navy blues. The visual style is crisp and editorial, fitting the authoritative yet accessible brand personality of CampusOS." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC02M7mD3ILehfeJKCWe2oiUwAaILoLqQWJezvIKOBJiyPJpeoagUw0QyZ6ldkFxcSZKX0yzlM6AuC7lg943iPnxlU0YS-A_Uaz_nhnK1mYSvwlzDE1GK6y-cMA-FX9dzEn1juOnHRNoAnjlMew1jbivGkqDYZVZc_gFC-0lWfkF2W8_GDEQFinxlCnkulSSoQ-IfSerghbQqTQWq3ndwDwTgDwxJxEcLAah7SzN_13qxrFVgfHFUGFijL-cazQhSrYOm5fBZQQo6k"/>
+</div>
+<div class="max-w-[75%] space-y-xs">
+<div class="flex items-center gap-xs">
+<span class="font-label-caps text-[11px] font-bold text-ink-navy">Sarah Chen</span>
+<span class="material-symbols-outlined text-[14px] text-verified-gold" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest border border-rule-grey text-[9px] font-label-mono uppercase text-on-surface-variant">TA</span>
+<span class="text-[10px] font-label-mono text-outline ml-base">1:02 PM</span>
+</div>
+<div class="bg-white border border-rule-grey p-md rounded-xl message-bubble-in shadow-sm space-y-md">
+<p class="text-body-md text-on-surface leading-relaxed">Thanks! I also summarized the main points into this visual map for the study session tonight.</p>
+<div class="border border-rule-grey rounded-lg overflow-hidden relative cursor-pointer group/img">
+<img class="w-full h-48 object-cover" data-alt="A clean, minimalist digital diagram or mind map showing interconnected concepts of quantum computing algorithms. The diagram uses the CampusOS color palette of navy, gold, and cream, with elegant typography and thin rule lines, looking like a page from a high-end academic journal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUSB7O6uDW_edcEq13MiNJSwnZWKtduZt_2ctcwzNGuiflJXS9K8PpBGKisqKOzTCN4_JDOa_3-ztjApsmBaP_lOyBXluOCjWh1dF2Nc17VSnoquN2A9V5OSNesbAN0ghSdzRjL4J9-QGjLCLlKVGU34EfWxyqdHX1N8pv9nrJBfEYpS4Nezy4oh60Tek8xuxRJcZ1C6VLsgRgMB6XjkgqbUdw3rqiAHJCASt5Vwn3ekpgOareU7vcZ2o6115YVOdJkywLBK2C4uk"/>
+<div class="absolute inset-0 bg-ink-navy/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl">zoom_in</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Message Input -->
+<div class="p-lg border-t border-rule-grey bg-white">
+<div class="flex items-end gap-md">
+<div class="flex-1 min-h-[48px] bg-paper-bg border border-rule-grey rounded-xl p-xs flex items-center gap-xs focus-within:border-ink-navy transition-colors">
+<button class="p-sm hover:bg-surface-container-highest rounded-lg transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">add</span>
+</button>
+<textarea class="flex-1 bg-transparent border-none focus:ring-0 text-body-md py-sm resize-none custom-scrollbar" placeholder="Type a message to CS Hub..." rows="1"></textarea>
+<div class="flex items-center gap-xs px-sm">
+<button class="p-sm hover:bg-surface-container-highest rounded-lg transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">sentiment_satisfied</span>
+</button>
+<button class="p-sm hover:bg-surface-container-highest rounded-lg transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">attach_file</span>
+</button>
+</div>
+</div>
+<button class="h-12 w-12 bg-ink-navy text-white rounded-xl flex items-center justify-center hover:bg-primary-container transition-all active:scale-95">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+<div class="mt-sm flex justify-between">
+<p class="text-[10px] font-label-mono text-outline">Press Enter to send, Shift + Enter for new line</p>
+<div class="flex gap-md">
+<span class="text-[10px] font-label-mono text-outline flex items-center gap-xs">
+<span class="material-symbols-outlined text-[12px]">visibility</span> Public
+                        </span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation (JSON Component Mapping for Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-margin-mobile py-xs bg-paper-bg border-t border-rule-grey md:hidden z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-caps text-[10px] uppercase mt-1">Ledger</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-caps text-[10px] uppercase mt-1">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-verified-gold" href="#">
+<span class="material-symbols-outlined">handshake</span>
+<span class="font-label-caps text-[10px] uppercase mt-1">Barter</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">business_center</span>
+<span class="font-label-caps text-[10px] uppercase mt-1">Career</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="font-label-caps text-[10px] uppercase mt-1">Admin</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for the chat interface
+        document.addEventListener('DOMContentLoaded', () => {
+            const textarea = document.querySelector('textarea');
+            if (textarea) {
+                textarea.addEventListener('input', function() {
+                    this.style.height = 'auto';
+                    this.style.height = (this.scrollHeight) + 'px';
+                });
+            }
+
+            // Scroll to bottom of chat on load
+            const chatArea = document.querySelector('.overflow-y-auto.p-lg');
+            if (chatArea) {
+                chatArea.scrollTop = chatArea.scrollHeight;
+            }
+        });
+    </script>
+</body></html>
