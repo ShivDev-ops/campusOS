@@ -74,7 +74,7 @@ export default function Sidebar({ activeSegment }: Props) {
         })}
       </nav>
       <div className="mt-auto border-t border-rule-grey pt-4 space-y-3">
-        <form action={signOutAction}>
+        <form action={signOutAction} method="post">
           <button
             type="submit"
             className="w-full border border-rule-grey bg-white text-ink-navy py-2.5 rounded-lg font-sans font-bold text-xs tracking-wider uppercase hover:bg-paper-bg transition-all flex items-center justify-center gap-2"

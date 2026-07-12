@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Source_Serif_4, Public_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import FerrofluidWrapper from "@/components/FerrofluidWrapper";
 
 const sourceSerif = Source_Serif_4({
   variable: "--font-source-serif",
@@ -41,8 +42,14 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full flex flex-col bg-paper-bg">
-        {children}
+      <body className="min-h-full flex flex-col bg-paper-bg relative overflow-x-hidden">
+        {/* Background Ferrofluid Animation */}
+        <FerrofluidWrapper />
+
+        {/* Main Content */}
+        <div className="relative z-10 flex flex-col flex-1 min-h-full">
+          {children}
+        </div>
       </body>
     </html>
   );

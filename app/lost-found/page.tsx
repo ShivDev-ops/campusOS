@@ -48,7 +48,7 @@ export default async function LostFoundPage({
 
       {/* Top AppBar */}
       <div className="md:ml-64 flex flex-col flex-1 min-h-screen">
-        <header className="sticky top-0 z-40 border-b border-rule-grey bg-white h-16 flex justify-between items-center px-6 md:px-10">
+        <header className="sticky top-0 z-40 border-b border-rule-grey bg-white h-16 flex justify-between items-center px-6 md:px-10 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
           <div className="flex items-center gap-3 md:hidden">
             <MobileNavDropdown activeSegment="lost-found" />
           </div>
@@ -108,7 +108,7 @@ export default async function LostFoundPage({
                   items.map((item) => (
                     <div
                       key={item.id}
-                      className="bg-white border border-rule-grey rounded-lg overflow-hidden group hover:border-verified-gold transition-colors flex flex-col"
+                      className="bg-white border border-rule-grey rounded-lg overflow-hidden group hover:border-ink-navy transition-colors flex flex-col"
                     >
                       <div className="relative h-48 bg-paper-bg overflow-hidden border-b border-rule-grey flex items-center justify-center">
                         {item.image_url ? (
@@ -145,6 +145,13 @@ export default async function LostFoundPage({
                     </div>
                   ))
                 ) : null}
+
+                {(!items || items.length === 0) && (
+                  <div className="col-span-full flex flex-col items-center justify-center py-16 text-center space-y-3">
+                    <span className="material-symbols-outlined text-5xl text-rule-grey">search_off</span>
+                    <p className="font-sans text-sm text-on-surface-variant">No {currentType} items reported yet.</p>
+                  </div>
+                )}
 
                 {/* File a Report Box */}
                 <div className="bg-white/40 border border-dashed border-rule-grey rounded-lg flex flex-col items-center justify-center p-8 text-center h-[350px] space-y-4">

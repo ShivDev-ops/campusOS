@@ -1,7 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
-import DevReputationButton from '@/components/DevReputationButton'
+
 import Sidebar from '@/components/Sidebar'
 import MobileNavDropdown from '@/components/MobileNavDropdown'
 import { signOutAction } from '@/app/actions/auth'
@@ -39,7 +39,7 @@ export default async function DashboardPage() {
       {/* Main Content Wrapper */}
       <div className="md:ml-64 flex flex-col flex-1 min-h-screen">
         {/* TopAppBar */}
-        <header className="sticky top-0 w-full h-16 bg-white border-b border-rule-grey flex justify-between items-center px-6 md:px-10 z-40">
+        <header className="sticky top-0 w-full h-16 bg-white border-b border-rule-grey shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex justify-between items-center px-6 md:px-10 z-40">
           <MobileNavDropdown activeSegment="home" />
           <div className="hidden md:block"></div>
           <div className="flex items-center gap-6">
@@ -47,19 +47,19 @@ export default async function DashboardPage() {
               <span className="material-symbols-outlined text-outline mr-2 text-[20px]">search</span>
               <input className="bg-transparent border-none focus:ring-0 text-sm w-48 lg:w-64 outline-none font-sans" placeholder="Search records..." type="text" />
             </div>
-            <button className="relative text-ink-navy hover:text-verified-gold transition-colors">
+            <button className="relative text-ink-navy hover:text-verified-gold transition-colors" aria-label="Notifications">
               <span className="material-symbols-outlined">notifications</span>
               <span className="absolute top-0 right-0 w-2 h-2 bg-error-brick rounded-full border border-white"></span>
             </button>
             {/* User Avatar Placeholder */}
-            <div className="w-8 h-8 rounded-full border border-rule-grey bg-paper-bg flex items-center justify-center overflow-hidden font-bold text-xs">
+            <div className="w-8 h-8 rounded-full border border-rule-grey bg-paper-bg flex items-center justify-center overflow-hidden font-bold text-xs" aria-label="User profile">
               {fullName[0]?.toUpperCase()}
             </div>
           </div>
         </header>
 
         {/* Main Canvas */}
-        <main className="p-6 md:p-10 space-y-8 max-w-[1200px] w-full mx-auto pb-24">
+        <main className="p-6 md:p-10 space-y-8 max-w-[1200px] w-full mx-auto pb-6">
           {/* Summary Strip */}
           <section className="bg-white border border-rule-grey p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 rounded-lg">
             <div className="flex items-center gap-4">
@@ -125,10 +125,7 @@ export default async function DashboardPage() {
             </div>
           </section>
 
-          {/* Dev Test controls */}
-          <section className="max-w-md">
-            <DevReputationButton />
-          </section>
+
         </main>
       </div>
     </div>

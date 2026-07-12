@@ -52,7 +52,7 @@ export default function LoginPage() {
         </div>
 
         {/* Login Card */}
-        <div className="bg-white border border-rule-grey w-full p-6 flex flex-col gap-6 rounded-lg shadow-none">
+        <div className="bg-white border border-rule-grey w-full p-6 flex flex-col gap-6 rounded-lg shadow-sm">
           <header className="border-b border-rule-grey pb-4 flex justify-between items-end">
             <h2 className="font-headline text-2xl text-ink-navy font-semibold">Welcome back</h2>
             <span className="material-symbols-outlined text-verified-gold text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>
@@ -76,7 +76,7 @@ export default function LoginPage() {
                 name="email"
                 required
                 disabled={isPending}
-                className="w-full h-12 px-4 border border-rule-grey rounded-lg focus:ring-0 focus:border-ink-navy outline-none bg-paper-bg transition-all placeholder:text-outline/70 font-sans text-on-surface"
+                className="w-full h-12 px-4 border border-rule-grey rounded-lg focus:ring-1 focus:ring-verified-gold/30 focus:border-ink-navy outline-none bg-paper-bg transition-all placeholder:text-outline/70 font-sans text-on-surface"
                 placeholder="student@university.edu"
                 type="email"
               />
@@ -94,7 +94,7 @@ export default function LoginPage() {
                 name="password"
                 required
                 disabled={isPending}
-                className="w-full h-12 px-4 border border-rule-grey rounded-lg focus:ring-0 focus:border-ink-navy outline-none bg-paper-bg transition-all placeholder:text-outline/70 font-sans text-on-surface"
+                className="w-full h-12 px-4 border border-rule-grey rounded-lg focus:ring-1 focus:ring-verified-gold/30 focus:border-ink-navy outline-none bg-paper-bg transition-all placeholder:text-outline/70 font-sans text-on-surface"
                 placeholder="••••••••"
                 type="password"
               />

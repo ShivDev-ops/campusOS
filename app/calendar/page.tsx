@@ -54,7 +54,7 @@ export default async function CalendarPage({
 
       {/* Top AppBar */}
       <div className="md:ml-64 flex flex-col flex-1 min-h-screen">
-        <header className="sticky top-0 z-40 border-b border-rule-grey bg-white h-16 flex justify-between items-center px-6 md:px-10">
+        <header className="sticky top-0 z-40 border-b border-rule-grey bg-white h-16 flex justify-between items-center px-6 md:px-10 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
           <div className="flex items-center gap-3 md:hidden">
             <MobileNavDropdown activeSegment="calendar" />
           </div>
@@ -79,7 +79,7 @@ export default async function CalendarPage({
         </header>
 
         {/* Main Canvas */}
-        <main className="p-6 md:p-10 space-y-8 max-w-[1000px] w-full mx-auto pb-24">
+        <main className="p-6 md:p-10 space-y-8 max-w-[1200px] w-full mx-auto pb-24">
           {/* Header & Control Segment */}
           <div className="border-b border-rule-grey pb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="space-y-1">

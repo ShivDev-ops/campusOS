@@ -54,7 +54,7 @@ export default function SignupPage() {
         </div>
 
         {/* Sign Up Card */}
-        <div className="bg-white border border-rule-grey rounded-lg p-6 shadow-none">
+        <div className="bg-white border border-rule-grey rounded-lg p-6 shadow-sm">
           {/* Header Section */}
           <div className="mb-6 border-b border-rule-grey pb-4">
             <h2 className="font-headline text-2xl text-ink-navy font-semibold">Create your account</h2>
@@ -90,7 +90,7 @@ export default function SignupPage() {
                   name="fullName"
                   required
                   disabled={isPending}
-                  className="w-full h-12 px-4 border border-rule-grey rounded-lg focus:ring-0 focus:border-ink-navy outline-none bg-paper-bg transition-all placeholder:text-outline/70 font-sans text-on-surface"
+                  className="w-full h-12 px-4 border border-rule-grey rounded-lg focus:ring-1 focus:ring-verified-gold/30 focus:border-ink-navy outline-none bg-paper-bg transition-all placeholder:text-outline/70 font-sans text-on-surface"
                   placeholder="e.g. Rahul Sharma"
                   type="text"
                 />
@@ -103,7 +103,7 @@ export default function SignupPage() {
                   name="email"
                   required
                   disabled={isPending}
-                  className="w-full h-12 px-4 border border-rule-grey rounded-lg focus:ring-0 focus:border-ink-navy outline-none bg-paper-bg transition-all placeholder:text-outline/70 font-sans text-on-surface"
+                  className="w-full h-12 px-4 border border-rule-grey rounded-lg focus:ring-1 focus:ring-verified-gold/30 focus:border-ink-navy outline-none bg-paper-bg transition-all placeholder:text-outline/70 font-sans text-on-surface"
                   placeholder="e.g. rahul.sharma@example.edu.in"
                   type="email"
                 />
@@ -117,7 +117,7 @@ export default function SignupPage() {
                     name="department"
                     required
                     disabled={isPending}
-                    className="w-full h-12 px-4 border border-rule-grey rounded-lg focus:ring-0 focus:border-ink-navy outline-none bg-paper-bg transition-all font-sans text-on-surface appearance-none bg-[right_12px_center] bg-no-repeat bg-[size:16px] text-sm"
+                    className="w-full h-12 px-4 border border-rule-grey rounded-lg focus:ring-1 focus:ring-verified-gold/30 focus:border-ink-navy outline-none bg-paper-bg transition-all font-sans text-on-surface appearance-none bg-[right_12px_center] bg-no-repeat bg-[size:16px] text-sm"
                     style={{
                       backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%231F2A44'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`
                     }}
@@ -135,7 +135,7 @@ export default function SignupPage() {
                     name="year"
                     required
                     disabled={isPending}
-                    className="w-full h-12 px-4 border border-rule-grey rounded-lg focus:ring-0 focus:border-ink-navy outline-none bg-paper-bg transition-all font-sans text-on-surface appearance-none bg-[right_12px_center] bg-no-repeat bg-[size:16px] text-sm"
+                    className="w-full h-12 px-4 border border-rule-grey rounded-lg focus:ring-1 focus:ring-verified-gold/30 focus:border-ink-navy outline-none bg-paper-bg transition-all font-sans text-on-surface appearance-none bg-[right_12px_center] bg-no-repeat bg-[size:16px] text-sm"
                     style={{
                       backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%231F2A44'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`
                     }}
@@ -157,7 +157,7 @@ export default function SignupPage() {
                     name="password"
                     required
                     disabled={isPending}
-                    className="w-full h-12 px-4 border border-rule-grey rounded-lg focus:ring-0 focus:border-ink-navy outline-none bg-paper-bg transition-all placeholder:text-outline/70 font-sans text-on-surface"
+                    className="w-full h-12 px-4 border border-rule-grey rounded-lg focus:ring-1 focus:ring-verified-gold/30 focus:border-ink-navy outline-none bg-paper-bg transition-all placeholder:text-outline/70 font-sans text-on-surface"
                     placeholder="••••••••"
                     type="password"
                   />
@@ -168,7 +168,7 @@ export default function SignupPage() {
                     name="confirmPassword"
                     required
                     disabled={isPending}
-                    className="w-full h-12 px-4 border border-rule-grey rounded-lg focus:ring-0 focus:border-ink-navy outline-none bg-paper-bg transition-all placeholder:text-outline/70 font-sans text-on-surface"
+                    className="w-full h-12 px-4 border border-rule-grey rounded-lg focus:ring-1 focus:ring-verified-gold/30 focus:border-ink-navy outline-none bg-paper-bg transition-all placeholder:text-outline/70 font-sans text-on-surface"
                     placeholder="••••••••"
                     type="password"
                   />

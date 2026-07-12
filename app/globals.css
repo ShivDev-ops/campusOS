@@ -11,6 +11,9 @@
   --color-success-sage: #5E7360;
   --color-error-brick: #C84B31;
   --color-rule-grey: #E4E4E2;
+  --color-on-surface-variant: #71717A;
+  --color-outline: #A1A1AA;
+  --color-on-surface: #27272A;
   
   --radius-DEFAULT: 0.25rem;
   --radius-lg: 0.5rem;
@@ -37,4 +40,31 @@ body {
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Custom styled scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #E4E4E2;
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #A1A1AA;
+}
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #E4E4E2 transparent;
+}
+
+::selection {
+  background-color: rgba(179, 152, 94, 0.3);
+}
+
+html {
+  scroll-behavior: smooth;
 }

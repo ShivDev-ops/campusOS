@@ -30,11 +30,10 @@ export async function signUpAction(formData: FormData) {
     },
   })
 
-  if (error) {
-    return { error: error.message }
-  }
+  // Redirect to login after successful sign up
+  redirect('/login')
+  return
 
-  return { success: 'Check your email for the confirmation link / OTP' }
 }
 
 export async function loginAction(formData: FormData) {

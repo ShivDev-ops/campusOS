@@ -50,7 +50,7 @@ export default async function ListingDetailPage({ params }: Props) {
       <Sidebar activeSegment="marketplace" />
 
       <div className="md:ml-64 flex flex-col flex-1 min-h-screen">
-        <header className="sticky top-0 z-40 border-b border-rule-grey bg-white h-16 flex justify-between items-center px-6 md:px-10">
+        <header className="sticky top-0 z-40 border-b border-rule-grey shadow-[0_1px_3px_rgba(0,0,0,0.04)] bg-white h-16 flex justify-between items-center px-6 md:px-10">
           <Link href="/marketplace" className="flex items-center gap-1 text-xs font-sans font-bold text-on-surface-variant hover:text-ink-navy transition-colors">
             <span className="material-symbols-outlined text-[16px]">arrow_back</span>
             BACK TO BAZAAR

@@ -22,7 +22,7 @@ export default async function CreateLostFoundPage() {
       <Sidebar activeSegment="lost-found" />
 
       <div className="md:ml-64 flex flex-col flex-1 min-h-screen">
-        <header className="sticky top-0 z-40 border-b border-rule-grey bg-white h-16 flex justify-between items-center px-6 md:px-10">
+        <header className="sticky top-0 z-40 border-b border-rule-grey bg-white h-16 flex justify-between items-center px-6 md:px-10 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
           <div className="flex items-center gap-3 md:hidden">
             <MobileNavDropdown activeSegment="lost-found" />
           </div>

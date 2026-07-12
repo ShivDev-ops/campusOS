@@ -50,7 +50,7 @@ export default async function MarketplacePage({
 
       {/* Top AppBar */}
       <div className="md:ml-64 flex flex-col flex-1 min-h-screen">
-        <header className="sticky top-0 z-40 border-b border-rule-grey bg-white h-16 flex justify-between items-center px-6 md:px-10">
+        <header className="sticky top-0 z-40 border-b border-rule-grey shadow-[0_1px_3px_rgba(0,0,0,0.04)] bg-white h-16 flex justify-between items-center px-6 md:px-10">
           <div className="flex items-center gap-3 md:hidden">
             <MobileNavDropdown activeSegment="marketplace" />
           </div>
@@ -129,7 +129,7 @@ export default async function MarketplacePage({
 
           {/* Listings Grid */}
           {listings && listings.length > 0 ? (
-            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {listings.map((item) => {
                 const sellerName = item.profiles?.full_name || 'Anonymous'
                 const isSellerVerified = item.profiles?.permission_tier === 'Trader' || item.profiles?.permission_tier === 'Admin'
@@ -202,6 +202,7 @@ export default async function MarketplacePage({
       <Link
         href="/marketplace/create"
         className="fixed bottom-24 right-6 md:bottom-12 md:right-12 w-14 h-14 bg-verified-gold text-white rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110 active:scale-95 z-40"
+        aria-label="Create new listing"
       >
         <span className="material-symbols-outlined text-[32px]">add</span>
       </Link>
