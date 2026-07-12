@@ -28,8 +28,6 @@ export default function SignupPage() {
       const response = await signUpAction(formData)
       if (response?.error) {
         setError(response.error)
-      } else if (response?.success) {
-        setSuccess(response.success)
       }
     })
   }
