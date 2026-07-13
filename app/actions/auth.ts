@@ -2,6 +2,12 @@
 
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
+import { headers } from 'next/headers'
+
+async function getSiteOrigin() {
+  const requestHeaders = await headers()
+  return requestHeaders.get('origin') || process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+}
 
 export async function signUpAction(formData: FormData) {
   const email = formData.get('email') as string
@@ -16,12 +22,13 @@ export async function signUpAction(formData: FormData) {
   }
 
   const supabase = await createClient()
+  const origin = await getSiteOrigin()
 
-  const { error } = await supabase.auth.signUp({
+  const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: {
-      emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/auth/callback`,
+      emailRedirectTo: `${origin}/auth/callback`,
       data: {
         full_name: fullName,
         department: department || '',
@@ -30,9 +37,17 @@ export async function signUpAction(formData: FormData) {
     },
   })
 
-  // Redirect to login after successful sign up
-  redirect('/login')
-  return
+  if (error) {
+    return { error: error.message }
+  }
+
+  if (data?.session) {
+    redirect('/dashboard')
+  }
+
+  return {
+    success: 'Check your inbox for the verification link before logging in.',
+  }
 
 }
 
@@ -60,7 +75,7 @@ export async function loginAction(formData: FormData) {
 
 export async function signInWithGoogle() {
   const supabase = await createClient()
-  const origin = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+  const origin = await getSiteOrigin()
 
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
